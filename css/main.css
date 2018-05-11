@@ -40,6 +40,16 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ rs Modal ]*/
+footer {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  padding: 20px;
+}
+.center-container {
+  padding-top: 40vh;
+}
 
 body {padding-right: 0px !important;}
 .modal {
@@ -402,10 +412,10 @@ input.input100 {
   font-size: 30px;
   color: #fff;
   display: inline-block;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   background-color: transparent;
-  border-radius: 40px;
+  border-radius: 30px;
   border: 2px solid transparent;
   z-index: 1;
   overflow: hidden;
