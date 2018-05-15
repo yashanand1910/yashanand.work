@@ -217,23 +217,6 @@ input.input100 {
 .cl0 {color: #fff;}
 
 
-/*==================================================================
-[ Links ]*/
-a:hover {
-  opacity: 0.9;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-a:focus, a:active {
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-a.l1-txt1:hover {
-  color: #fff !important;
-}
-
-
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
 .s1-txt1 {
@@ -512,7 +495,21 @@ a.l1-txt1:hover {
 
 
 
-
+/*==================================================================
+[ Links ]*/
+a:hover {
+  opacity: 0.9;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+a:focus, a:active {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+a.l1-txt1:hover {
+  color: #fff;
+}
 
 
 
@@ -626,7 +623,6 @@ a.l1-txt1:hover {
   }
   
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ SSM ]*/
