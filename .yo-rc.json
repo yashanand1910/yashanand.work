@@ -1,0 +1,32 @@
+{
+  "generator-ngx-rocket": {
+    "version": "10.0.0",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "yashanand-dev",
+      "target": ["web"],
+      "ui": "bootstrap",
+      "features": ["pwa", "lazy", "e2e", "angulartics"],
+      "languages": ["en-US"],
+      "analyticsProvider": "ga",
+      "googleAnalyticsAccount": "",
+      "tools": ["prettier", "jest", "puppeteer"],
+      "utility": [],
+      "deploy": "none",
+      "projectName": "yashanand-dev",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": [],
+      "pwa": true,
+      "auth": false,
+      "lazy": true,
+      "e2e": true,
+      "angulartics": true
+    }
+  }
+}
