@@ -11,7 +11,7 @@ describe('AppComponent', () => {
       TestBed.configureTestingModule({
         imports: [Angulartics2Module.forRoot(), RouterTestingModule, TranslateModule.forRoot()],
         declarations: [AppComponent],
-        providers: [],
+        providers: []
       }).compileComponents();
     })
   );

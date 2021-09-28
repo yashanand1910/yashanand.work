@@ -9,7 +9,7 @@ const log = new Logger('I18nService');
 const languageKey = 'language';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class I18nService {
   defaultLanguage!: string;

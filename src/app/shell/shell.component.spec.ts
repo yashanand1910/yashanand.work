@@ -15,7 +15,7 @@ describe('ShellComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [TranslateModule.forRoot(), I18nModule, NgbModule, RouterTestingModule],
-        declarations: [HeaderComponent, ShellComponent],
+        declarations: [HeaderComponent, ShellComponent]
       }).compileComponents();
     })
   );

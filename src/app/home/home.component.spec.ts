@@ -16,7 +16,7 @@ describe('HomeComponent', () => {
       TestBed.configureTestingModule({
         imports: [RouterTestingModule, Angulartics2Module.forRoot(), SharedModule, HttpClientTestingModule],
         declarations: [HomeComponent],
-        providers: [QuoteService],
+        providers: [QuoteService]
       }).compileComponents();
     })
   );

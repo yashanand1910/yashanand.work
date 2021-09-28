@@ -24,6 +24,7 @@
 .idea/*
 !.idea/runConfigurations/
 !.idea/codeStyleSettings.xml
+!.idea/scopes
 .project
 .classpath
 .c9/
@@ -56,6 +57,8 @@ testem.log
 /src/translations/template.*
 /src/environments/.env.*
 /**/*.cache
+/data-clone
+*.log
 
 # System Files
 .DS_Store
