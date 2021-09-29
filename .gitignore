@@ -24,7 +24,6 @@
 .idea/*
 !.idea/runConfigurations/
 !.idea/codeStyleSettings.xml
-!.idea/scopes
 .project
 .classpath
 .c9/
