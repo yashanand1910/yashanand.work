@@ -29,6 +29,9 @@ jobs:
       - run: npm run test:ci
         name: Run unit tests
 
+      - run: npm run build
+        name: Build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         name: Deploy preview
         with:
