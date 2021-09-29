@@ -1,5 +1,3 @@
-import 'jest-preset-angular';
-
 /* global mocks for jsdom */
 const storageMock = () => {
   let storage: { [key: string]: string } = {};
@@ -45,4 +43,4 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 /* output shorter and more meaningful Zone error stack traces */
-// Error.stackTraceLimit = 2;
+Error.stackTraceLimit = 2;
