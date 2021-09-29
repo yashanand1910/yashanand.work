@@ -1,0 +1,25 @@
+name: PR Close (Master)
+
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+
+jobs:
+  close:
+    name: Deactivate Preview Environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deactivate deployment
+        uses: bobheadxi/deployments@v0.6.0
+        with:
+          step: deactivate-env
+          token: ${{ secrets.GITHUB_TOKEN }}
+          logs: 'https://console.firebase.google.com/u/0/project/yashanand-dev/hosting/sites/yashanand-dev'
+          env: 'Preview (${{ github.head_ref }})'
+          desc: Deployment was pruned
+      - name: Delete environment
+        uses: strumwolf/delete-deployment-environment@v2.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: 'Preview (${{ github.head_ref }})'
