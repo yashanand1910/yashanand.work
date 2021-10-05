@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
-import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -15,7 +15,7 @@ describe('ShellComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [TranslateModule.forRoot(), I18nModule, NgbModule, RouterTestingModule],
-        declarations: [HeaderComponent, ShellComponent]
+        declarations: [FooterComponent, ShellComponent]
       }).compileComponents();
     })
   );

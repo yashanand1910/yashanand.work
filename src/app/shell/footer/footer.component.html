@@ -1,0 +1,8 @@
+<footer>
+  <div class="social-list links-list">
+    <ul>
+      <li *ngFor="let item of socialLinks"><a target="_blank" [href]="item.link">{{ item.name | translate }}</a></li>
+    </ul>
+  </div>
+  <div class="copyright no-select">© 2021 Yash Anand</div>
+</footer>

@@ -3,9 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Angulartics2Module } from 'angulartics2';
 
-import { SharedModule } from '@shared';
+import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,7 +15,7 @@ describe('HomeComponent', () => {
       TestBed.configureTestingModule({
         imports: [RouterTestingModule, Angulartics2Module.forRoot(), SharedModule, HttpClientTestingModule],
         declarations: [HomeComponent],
-        providers: [QuoteService]
+        providers: []
       }).compileComponents();
     })
   );

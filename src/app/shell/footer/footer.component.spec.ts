@@ -4,24 +4,24 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { I18nModule } from '@app/i18n';
-import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [RouterTestingModule, NgbModule, TranslateModule.forRoot(), I18nModule],
-        declarations: [HeaderComponent],
+        declarations: [FooterComponent],
         providers: []
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

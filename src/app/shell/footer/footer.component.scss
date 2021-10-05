@@ -1,0 +1,28 @@
+@import "src/theme/theme-variables";
+
+footer {
+  text-align: center;
+  height: 100px;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 14px auto;
+}
+
+.copyright {
+  display: grid;
+  align-items: center;
+  font-size: 14px;
+}
+
+.social-list {
+  display: grid;
+  align-items: center;
+  font-size: 24px;
+
+  ul {
+    li {
+      padding: 0 24px;
+      display: inline;
+    }
+  }
+}
