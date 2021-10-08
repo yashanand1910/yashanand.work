@@ -1,0 +1,12 @@
+@import "src/theme/theme-variables";
+
+:host {
+  font-size: 24px;
+  line-height: 185%;
+}
+
+@media (max-width: 600px) {
+  :host {
+    font-size: 18px;
+  }
+}

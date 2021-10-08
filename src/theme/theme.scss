@@ -7,22 +7,34 @@
 
 body {
   font-family: $primary-font;
+  color: $gray;
 }
 
-//noinspection Stylelint
-.no-select {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+.black {
+  color: $black;
 }
 
 // Typography
 
 .title {
   font-family: $title-font;
+}
+
+b {
+  color: $black;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  transition: $normal-time;
+  //text-decoration-style: dashed;
+  text-decoration-color: $light-gray;
+
+  &:hover {
+    color: $black;
+    text-decoration-color: inherit;
+  }
 }
 
 // Lists
@@ -34,23 +46,59 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    transition: color $normal-time;
-
-    li {
-      transition: color $normal-time;
-    }
-
-    li:hover {
-      color: $black;
-    }
+    transition: $normal-time ease-out;
 
     &:hover {
-      color: $gray;
+      color: $light-gray;
+
+      .active {
+        color: inherit;
+      }
+
+      li:hover {
+        color: $black;
+      }
     }
   }
 
   a {
+    cursor: pointer;
     text-decoration: inherit;
     color: inherit;
+  }
+
+  .active {
+    color: $black;
+  }
+}
+
+// Animation
+
+.blinking {
+  animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-animate {
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }

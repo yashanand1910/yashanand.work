@@ -1,0 +1,43 @@
+@import "src/theme/theme-variables";
+
+:host {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto $footer-height;
+}
+
+.layout-container {
+  display: grid;
+  grid-template-areas: "navbar content-container";
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-content: center;
+}
+
+app-navbar {
+  padding: $page-gutter;
+  grid-area: navbar;
+}
+
+.content-container {
+  padding: $page-gutter;
+  grid-area: content-container;
+}
+
+@media (max-width: 600px) {
+  .layout-container {
+    grid-template-areas: "navbar" "content-container";
+    grid-template-columns: 100vw;
+    align-content: space-between;
+  }
+}
+
+@media (max-width: 370px) {
+  app-navbar {
+    padding: $page-gutter-sm;
+  }
+
+  .content-container {
+    padding: $page-gutter-sm;
+  }
+}

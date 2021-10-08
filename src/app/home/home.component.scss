@@ -1,34 +1,41 @@
 @import "src/theme/theme-variables";
 
-.landing-page {
-  font-family: $title-font;
-  width: 100%;
-  height: calc(100vh - 100px);
-  min-height: 400px;
-  display: grid;
-  grid-template-columns: 50vw 50vw;
-  align-content: center;
-  justify-content: center;
-}
-
 .name {
+  color: $black;
   font-size: 72px;
+  width: 225px;
   line-height: 88%;
 }
 
 .role {
-  color: $gray;
+  width: 275px;
   font-size: 64px;
   line-height: 88%;
 }
 
-.hero {
+:host {
+  @include no-select;
+  font-family: $title-font;
+  height: 250px;
+  grid-area: hero;
 }
 
-.page-list {
-  font-size: 36px;
-  padding-top: 24px;
-  line-height: 120%;
-  text-align: right;
-  padding-right: 96px;
+@media (max-width: 600px) {
+  .name {
+    font-size: 64px;
+  }
+
+  .role {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 370px) {
+  .name {
+    font-size: 56px;
+  }
+
+  .role {
+    font-size: 48px;
+  }
 }

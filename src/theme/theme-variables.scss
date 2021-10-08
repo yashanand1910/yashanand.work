@@ -3,7 +3,7 @@
  */
 
 // Font imports
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barlow&display=swap");
 
 /*
  * Variables
@@ -12,14 +12,31 @@
 // Colors
 $black: #000000;
 $gray: #656565;
+$light-gray: #bbbbbb;
 
 // Fonts
-$primary-font: "Raleway", sans-serif;
+$primary-font: "Barlow", sans-serif;
 $title-font: "Abril Fatface", cursive;
 
 // Lengths
-$footer-height: 100px;
+$footer-height: 120px;
+$page-gutter: 48px;
+$page-gutter-sm: 30px;
 
 // Duration
-$normal-time: 0.25s;
-$double-time: 0.5s;
+$normal-time: 0.15s;
+$double-time: 0.3s;
+
+/*
+ * Mixins
+ */
+
+//noinspection Stylelint
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}

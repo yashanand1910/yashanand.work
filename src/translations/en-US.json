@@ -1,7 +1,6 @@
 {
   "APP_NAME": "yashanand.dev",
-  "About": "About",
-  "Hello world !": "Hello world !",
-  "Home": "Home",
-  "Version": "Version"
+  "NAME": "Yash Anand",
+  "ROLE": "Software Engineer",
+  "about": "about"
 }

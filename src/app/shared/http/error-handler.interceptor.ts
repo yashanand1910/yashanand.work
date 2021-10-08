@@ -6,8 +6,6 @@ import { catchError } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { Logger } from '@app/shared';
 
-const log = new Logger('ErrorHandlerInterceptor');
-
 /**
  * Adds a default error handler to all requests.
  */
@@ -16,13 +14,14 @@ const log = new Logger('ErrorHandlerInterceptor');
 })
 export class ErrorHandlerInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(catchError((error) => this.errorHandler(error)));
+    return next.handle(request).pipe(catchError((error) => ErrorHandlerInterceptor.errorHandler(error)));
   }
 
   // Customize the default error handler here if needed
-  private errorHandler(response: HttpEvent<any>): Observable<HttpEvent<any>> {
+  static errorHandler(response: HttpEvent<any>): Observable<HttpEvent<any>> {
     if (!environment.production) {
       // Do something with the error
+      const log = new Logger('ErrorHandlerInterceptor');
       log.error('Request error', response);
     }
     throw response;

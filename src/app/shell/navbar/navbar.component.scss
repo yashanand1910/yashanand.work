@@ -1,0 +1,44 @@
+@import "src/theme/theme-variables";
+
+.navbar {
+  color: $light-gray;
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 36px;
+  text-align: right;
+
+  &.at-home {
+    color: $black;
+  }
+
+  .hidden {
+    opacity: 0;
+    transition: opacity $normal-time ease-out;
+  }
+
+  ul {
+    &:hover {
+      color: $light-gray;
+
+      .active {
+        color: inherit;
+      }
+
+      li:hover {
+        color: $black;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    font-size: 24px;
+
+    .hidden {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="navbar links-list" [class.at-home]="atHome | async">
+  <ul>
+    <li [class.hidden]="atHome | async">
+      <a [routerLink]="['/']" translate>home</a>
+    </li>
+    <li *ngFor="let item of navItems">
+      <a [routerLink]="item.link" routerLinkActive="active" [innerHTML]="item.name" translate></a>
+    </li>
+    <li>
+      <a target="_blank" translate href="https://resume.yashanand.dev">resume</a>
+    </li>
+  </ul>
+</div>
