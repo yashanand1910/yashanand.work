@@ -31,7 +31,6 @@ $double-time: 0.3s;
  * Mixins
  */
 
-//noinspection Stylelint
 @mixin no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
