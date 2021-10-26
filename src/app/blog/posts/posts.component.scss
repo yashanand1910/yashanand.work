@@ -1,0 +1,44 @@
+@import "src/theme/theme-variables";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filler-container {
+  padding: $page-gutter;
+  width: $sidebar-width;
+}
+
+.posts {
+  &:hover {
+    ::ng-deep {
+      .post {
+        .title {
+          color: $gray;
+        }
+      }
+
+      .post:hover {
+        .title {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  padding-top: $page-gutter;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: $screen-sm) {
+  .filler-container {
+    display: none;
+  }
+}

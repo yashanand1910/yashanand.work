@@ -1,0 +1,59 @@
+@import "src/theme/theme-variables";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-container {
+  width: $page-width;
+}
+
+.title {
+  @include title;
+
+  font-size: 56px;
+  color: $black;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.info-container {
+  font-size: 20px;
+
+  .date {
+    color: $light-gray;
+  }
+}
+
+.body {
+  font-size: 21px;
+  line-height: 32px;
+  margin-top: $page-gutter;
+  color: $black;
+}
+
+.tags-container {
+  font-size: 20px;
+}
+
+.filler-container {
+  padding: $page-gutter;
+  width: $sidebar-width;
+}
+
+@media (max-width: $screen-sm) {
+  .filler-container {
+    display: none;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .body {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

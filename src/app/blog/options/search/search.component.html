@@ -1,0 +1,9 @@
+<div class="search-container">
+  <div class="input-container icon-right">
+    <input class="input" placeholder="Search" />
+    <img src="assets/icons/search.svg" alt="search" />
+  </div>
+  <div class="tags-container">
+    <div *ngFor="let tag of (tags | async)" class="tag">{{ tag }}</div>
+  </div>
+</div>

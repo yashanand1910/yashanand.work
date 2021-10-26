@@ -18,12 +18,12 @@ export class NavbarComponent implements OnInit {
 
   navItems: NavItem[] = [
     {
-      name: 'blog',
-      link: 'blog'
-    },
-    {
       name: 'about',
       link: 'about'
+    },
+    {
+      name: 'blog',
+      link: 'blog'
     }
   ];
 

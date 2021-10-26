@@ -1,0 +1,21 @@
+@import "src/theme/theme-variables";
+
+.search-container {
+  margin-top: $page-gutter;
+}
+
+input {
+  width: 120px;
+  text-align: right;
+}
+
+.tags-container {
+  margin-top: 12px;
+  text-align: right;
+}
+
+@media (max-width: $screen-sm) {
+  .search-container {
+    margin-top: 0;
+  }
+}

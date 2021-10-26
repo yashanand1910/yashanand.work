@@ -26,13 +26,13 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: $screen-sm) {
   .social-list {
     font-size: 20px;
 
     ul {
-      justify-content: space-evenly;
-      grid-column-gap: $page-gutter-sm;
+      justify-content: space-around;
+      grid-column-gap: $page-gutter-xs;
     }
   }
 }

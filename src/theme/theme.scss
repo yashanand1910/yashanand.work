@@ -7,6 +7,8 @@
 
 body {
   font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
   color: $gray;
 }
 
@@ -37,6 +39,20 @@ a {
   }
 }
 
+.tag {
+  cursor: pointer;
+  line-height: 20px;
+  transition: $normal-time ease-out;
+
+  &:hover {
+    color: $black;
+  }
+
+  &:before {
+    content: " #";
+  }
+}
+
 // Lists
 
 .links-list {
@@ -47,6 +63,10 @@ a {
     margin: 0;
     padding: 0;
     transition: $normal-time ease-out;
+
+    li {
+      transition: $normal-time ease-out;
+    }
 
     &:hover {
       color: $light-gray;
@@ -69,6 +89,39 @@ a {
 
   .active {
     color: $black;
+  }
+}
+
+// Input
+
+.input {
+  background-color: $lightest-gray;
+  min-height: 36px;
+  padding: 0 10px;
+  border: none;
+
+  &:focus {
+    outline: 1px solid $black;
+  }
+}
+
+.icon-right {
+  .input {
+    padding-right: 30px;
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    @include no-drag;
+
+    position: relative;
+    margin-left: -25px;
+    height: 18px;
   }
 }
 

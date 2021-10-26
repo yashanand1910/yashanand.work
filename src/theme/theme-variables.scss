@@ -2,9 +2,6 @@
  * Application global variables.
  */
 
-// Font imports
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barlow&display=swap");
-
 /*
  * Variables
  */
@@ -13,6 +10,7 @@
 $black: #000000;
 $gray: #656565;
 $light-gray: #bbbbbb;
+$lightest-gray: #f6f6f6;
 
 // Fonts
 $primary-font: "Barlow", sans-serif;
@@ -21,11 +19,17 @@ $title-font: "Abril Fatface", cursive;
 // Lengths
 $footer-height: 120px;
 $page-gutter: 48px;
-$page-gutter-sm: 30px;
+$page-gutter-xs: 30px;
+$sidebar-width: 160px;
+$page-width: 680px;
 
 // Duration
 $normal-time: 0.15s;
 $double-time: 0.3s;
+
+// Screen breakpoints
+$screen-sm: 600px;
+$screen-xs: 400px;
 
 /*
  * Mixins
@@ -38,4 +42,17 @@ $double-time: 0.3s;
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+@mixin no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+@mixin title {
+  font-family: $title-font;
+  line-height: 88%;
 }
