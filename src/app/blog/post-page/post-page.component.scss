@@ -1,13 +1,15 @@
 @import "src/theme/theme-variables";
 
 :host {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-areas: "page filler";
+  grid-template-columns: auto auto;
   align-items: center;
 }
 
 .post-container {
-  width: $page-width;
+  grid-area: page;
+  max-width: $page-width;
 }
 
 .title {
@@ -20,8 +22,6 @@
 }
 
 .info-container {
-  font-size: 20px;
-
   .date {
     color: $light-gray;
   }
@@ -34,20 +34,7 @@
   color: $black;
 }
 
-.tags-container {
-  font-size: 20px;
-}
-
-.filler-container {
-  padding: $page-gutter;
-  width: $sidebar-width;
-}
-
-@media (max-width: $screen-sm) {
-  .filler-container {
-    display: none;
-  }
-
+@media only screen and (max-width: $screen-sm) {
   .title {
     font-size: 42px;
   }

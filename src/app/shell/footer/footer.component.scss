@@ -18,7 +18,7 @@ footer {
   font-size: 24px;
 
   ul {
-    padding: 0 $page-gutter;
+    margin: 0 $page-gutter;
     display: grid;
     justify-content: center;
     grid-auto-flow: column;
@@ -26,13 +26,13 @@ footer {
   }
 }
 
-@media (max-width: $screen-sm) {
+@media only screen and (max-width: $screen-sm) {
   .social-list {
     font-size: 20px;
 
     ul {
-      justify-content: space-around;
-      grid-column-gap: $page-gutter-xs;
+      justify-content: space-between;
+      margin: 0 $page-gutter-sm;
     }
   }
 }

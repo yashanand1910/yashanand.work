@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.atHome = this.router.events
       .pipe(
-        filter((e) => e instanceof NavigationEnd),
-        map((e: any) => e == '/' || e.url == '/')
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.router.url == '/')
       )
       .pipe(startWith(this.router.url == '/'));
   }

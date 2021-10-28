@@ -4,17 +4,13 @@
   margin-top: $page-gutter;
 }
 
-input {
-  width: 120px;
-  text-align: right;
-}
-
 .tags-container {
+  font-size: 18px;
   margin-top: 12px;
   text-align: right;
 }
 
-@media (max-width: $screen-sm) {
+@media only screen and (max-width: $screen-sm) {
   .search-container {
     margin-top: 0;
   }

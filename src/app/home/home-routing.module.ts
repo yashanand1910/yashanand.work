@@ -5,7 +5,9 @@ import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { HomeComponent } from './home.component';
 import { Shell } from '@app/shell/shell.service';
 
-const routes: Routes = [Shell.childRoutes([{ path: '', component: HomeComponent, data: { title: marker('Home') } }])];
+const routes: Routes = [
+  Shell.childRoutes([{ path: '', component: HomeComponent, data: { title: marker('Home'), layout: 'center-layout' } }])
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

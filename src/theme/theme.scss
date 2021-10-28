@@ -5,15 +5,24 @@
 
 // Generic
 
+@import "theme-variables";
+
 body {
   font-family: $primary-font;
   font-style: normal;
   font-weight: 400;
   color: $gray;
+  font-size: 21px;
 }
 
 .black {
   color: $black;
+}
+
+@media only screen and (max-width: $screen-sm) {
+  body {
+    font-size: 18px;
+  }
 }
 
 // Typography
@@ -95,10 +104,12 @@ a {
 // Input
 
 .input {
+  font-size: 18px;
   background-color: $lightest-gray;
   min-height: 36px;
-  padding: 0 10px;
+  border-radius: 18px;
   border: none;
+  width: 100%;
 
   &:focus {
     outline: 1px solid $black;
@@ -107,6 +118,7 @@ a {
 
 .icon-right {
   .input {
+    text-align: right;
     padding-right: 30px;
   }
 }
@@ -118,9 +130,9 @@ a {
 
   img {
     @include no-drag;
-
+    margin-right: -18px;
     position: relative;
-    margin-left: -25px;
+    right: 25px;
     height: 18px;
   }
 }

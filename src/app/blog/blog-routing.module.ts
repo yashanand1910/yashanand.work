@@ -24,6 +24,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
+        data: { layout: 'wide-layout' },
         children: [
           {
             path: '',

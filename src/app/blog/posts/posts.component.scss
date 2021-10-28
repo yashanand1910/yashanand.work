@@ -6,11 +6,6 @@
   align-items: center;
 }
 
-.filler-container {
-  padding: $page-gutter;
-  width: $sidebar-width;
-}
-
 .posts {
   &:hover {
     ::ng-deep {
@@ -30,15 +25,9 @@
 }
 
 .pagination {
-  padding-top: $page-gutter;
+  margin-top: $page-gutter;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-@media (max-width: $screen-sm) {
-  .filler-container {
-    display: none;
-  }
 }

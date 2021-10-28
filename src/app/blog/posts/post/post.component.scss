@@ -1,7 +1,7 @@
 @import "src/theme/theme-variables";
 
 .post {
-  width: 350px;
+  max-width: 350px;
   margin: 5px 0;
   box-shadow: 0 20px 25px #f3f3f3;
   padding: 16px;
@@ -49,8 +49,8 @@
   color: $light-gray;
 }
 
-@media (max-width: $screen-sm) {
+@media only screen and (max-width: $screen-sm) {
   .post {
-    width: inherit;
+    max-width: inherit;
   }
 }

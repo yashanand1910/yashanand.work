@@ -17,9 +17,9 @@ $primary-font: "Barlow", sans-serif;
 $title-font: "Abril Fatface", cursive;
 
 // Lengths
-$footer-height: 120px;
 $page-gutter: 48px;
-$page-gutter-xs: 30px;
+$footer-height: 120px;
+$page-gutter-sm: 36px;
 $sidebar-width: 160px;
 $page-width: 680px;
 
@@ -28,6 +28,8 @@ $normal-time: 0.15s;
 $double-time: 0.3s;
 
 // Screen breakpoints
+$screen-lg: 1300px;
+$screen-md: 1000px;
 $screen-sm: 600px;
 $screen-xs: 400px;
 

@@ -6,7 +6,7 @@
   margin-top: 52px;
 }
 
-@media (max-width: $screen-sm) {
+@media only screen and (max-width: $screen-sm) {
   .about-container {
     font-size: 18px;
   }

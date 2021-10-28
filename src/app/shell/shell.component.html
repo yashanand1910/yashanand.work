@@ -1,4 +1,4 @@
-<div class="layout-container">
+<div class="layout-container {{ layout | async }}">
   <div class="sidebar-container">
     <app-navbar></app-navbar>
     <div class="sidebar-additional">
@@ -8,5 +8,6 @@
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>
+  <div class="filler-container"></div>
 </div>
 <app-footer></app-footer>
