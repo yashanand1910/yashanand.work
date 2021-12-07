@@ -94,7 +94,6 @@ app-navbar {
     grid-template-areas: "navbar sidebar-additional";
     grid-template-columns: auto auto;
     justify-content: space-between;
-    //noinspection Stylelint
     margin: $page-gutter-sm $page-gutter-sm 0 $page-gutter-sm !important;
   }
 }
