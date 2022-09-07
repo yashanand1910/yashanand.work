@@ -6,23 +6,17 @@ import { Angulartics2Module } from 'angulartics2';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [Angulartics2Module.forRoot(), RouterTestingModule, TranslateModule.forRoot()],
-        declarations: [AppComponent],
-        providers: []
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [Angulartics2Module.forRoot(), RouterTestingModule, TranslateModule.forRoot()],
+      declarations: [AppComponent],
+      providers: []
+    }).compileComponents();
+  }));
 
-  it(
-    'should create the app',
-    waitForAsync(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.debugElement.componentInstance;
-      expect(app).toBeTruthy();
-    }),
-    30000
-  );
+  it('should create the app', waitForAsync(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }), 30000);
 });

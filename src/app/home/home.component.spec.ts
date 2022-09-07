@@ -10,15 +10,13 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [RouterTestingModule, Angulartics2Module.forRoot(), SharedModule, HttpClientTestingModule],
-        declarations: [HomeComponent],
-        providers: []
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule, Angulartics2Module.forRoot(), SharedModule, HttpClientTestingModule],
+      declarations: [HomeComponent],
+      providers: []
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
