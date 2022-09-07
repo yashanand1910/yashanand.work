@@ -82,9 +82,7 @@
             "development": {
               "browserTarget": "yashanand-dev:build:development"
             },
-            "ci": {
-              "progress": false
-            }
+            "ci": {}
           },
           "defaultConfiguration": "development"
         },
