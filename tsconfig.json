@@ -15,7 +15,7 @@
     "importHelpers": true,
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es2020",
+    "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "baseUrl": "./",
@@ -26,7 +26,8 @@
       "@model": ["src/app/model"],
       "@model/*": ["src/app/model/*"],
       "@env/*": ["src/environments/*"]
-    }
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
