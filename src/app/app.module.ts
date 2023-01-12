@@ -12,8 +12,6 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   imports: [
@@ -23,10 +21,7 @@ import { reducers, metaReducers } from './reducers';
     ShellModule,
     HomeModule,
     Angulartics2Module.forRoot(),
-    AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }) // must be imported as the last module as it contains the fallback route
+    AppRoutingModule
   ],
   declarations: [AppComponent],
   providers: [
