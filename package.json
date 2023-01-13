@@ -13,7 +13,7 @@
     "test:ci": "npm run write:env -s && npm run lint -s && ng test --configuration=ci",
     "e2e": "npm run write:env -s && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
-    "write:env": "ngx-scripts env npm_package_version",
+    "write:env": "ngx-scripts env npm_package_version notion_secret notion_database_id",
     "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
     "postinstall": "npm run prettier -s && husky install",

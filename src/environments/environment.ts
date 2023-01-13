@@ -13,9 +13,13 @@ import { env } from './.env';
 export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
-  serverUrl: '/api',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US']
+  supportedLanguages: ['en-US'],
+  notion: {
+    apiURI: 'https://api.notion.com/v1',
+    secret: env.notion_secret,
+    databaseId: env.notion_database_id
+  }
 };
 
 /*
