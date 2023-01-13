@@ -9,9 +9,7 @@ import { Logger } from '@app/shared';
 /**
  * Adds a default error handler to all requests.
  */
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError((error) => ErrorHandlerInterceptor.errorHandler(error)));

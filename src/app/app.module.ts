@@ -12,6 +12,7 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthorizationInterceptor } from './shared/http/authorization.interceptor';
 
 @NgModule({
   imports: [
@@ -28,6 +29,11 @@ import { AppRoutingModule } from './app-routing.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizationInterceptor,
       multi: true
     },
     {
