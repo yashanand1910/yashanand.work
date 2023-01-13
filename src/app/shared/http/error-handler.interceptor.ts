@@ -11,12 +11,12 @@ import { Logger } from '@app/shared';
  */
 @Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(catchError((error) => ErrorHandlerInterceptor.errorHandler(error)));
   }
 
   // Customize the default error handler here if needed
-  static errorHandler(response: HttpEvent<any>): Observable<HttpEvent<any>> {
+  static errorHandler(response: HttpEvent<unknown>): Observable<HttpEvent<unknown>> {
     if (!environment.production) {
       // Do something with the error
       const log = new Logger('ErrorHandlerInterceptor');
