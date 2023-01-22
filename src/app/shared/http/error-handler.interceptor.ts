@@ -20,7 +20,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
     if (!environment.production) {
       // Do something with the error
       const log = new Logger('ErrorHandlerInterceptor');
-      log.error('Request error', response);
+      log.error('Request error', `${response['status']}: ${response['statusText']} - ${response['message']}`);
     }
     throw response;
   }

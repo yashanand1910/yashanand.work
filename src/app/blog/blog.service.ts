@@ -16,6 +16,10 @@ export class BlogService {
   constructor(private http: HttpClient) {}
 
   getPosts() {
-    return this.http.get<Post[]>(`/databases/${this.databaseId}`).pipe(map((res) => log.debug(res)));
+    const query = {}; // empty query for all posts
+
+    return this.http
+      .post<Post[]>(`/databases/${this.databaseId}/query`, JSON.stringify(query))
+      .pipe(map((res) => log.debug(res)));
   }
 }
