@@ -17,8 +17,8 @@ export const environment = {
   supportedLanguages: ['en-US'],
   notion: {
     apiURI: 'https://api.notion.com/v1',
-    secret: env.notion_secret,
-    databaseId: env.notion_database_id
+    secret: env.NOTION_SECRET,
+    databaseId: env.NOTION_DATABASE_ID
   }
 };
 
