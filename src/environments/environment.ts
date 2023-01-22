@@ -16,7 +16,8 @@ export const environment = {
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
   notion: {
-    apiURI: 'https://api.notion.com/v1',
+    baseURI: '/v1', // proxy config is taking care of complete URL
+    version: '2022-06-28',
     secret: env.NOTION_SECRET,
     databaseId: env.NOTION_DATABASE_ID
   }
@@ -29,4 +30,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error'; // Included with Angular CLI.
+import 'zone.js/plugins/zone-error'; // Included with Angular CLI.

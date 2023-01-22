@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '@model/blog';
 import { Observable, of } from 'rxjs';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,9 +11,13 @@ import { Observable, of } from 'rxjs';
 export class PostsComponent implements OnInit {
   posts$!: Observable<Post[]>;
 
-  constructor() {}
+  constructor(private blogService: BlogService) {
+    // empty
+  }
 
   ngOnInit(): void {
+    this.blogService.getPosts().subscribe();
+
     this.posts$ = of([
       {
         id: '001',
