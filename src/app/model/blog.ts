@@ -2,10 +2,11 @@ export interface Post {
   id: string;
   author: string;
   title: string;
-  dateAdded: Date;
-  dateUpdated: Date;
-  wordCount: number;
-  tags: string[];
+  created: Date;
+  edited: Date;
+  editedBy: string;
+  wordCount?: number; // to derive reading time
+  tags?: string[];
 }
 
 export interface PostPage extends Post {

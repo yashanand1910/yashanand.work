@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '@model/blog';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { BlogService } from '../blog.service';
 
 @Component({
@@ -16,36 +16,19 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.blogService.getPosts().subscribe();
+    this.posts$ = this.blogService.getPosts();
 
-    this.posts$ = of([
-      {
-        id: '001',
-        author: 'Yash Anand',
-        title: 'Bicycle for the Mind',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 500,
-        tags: ['daily', 'principles']
-      },
-      {
-        id: '002',
-        author: 'Yash Anand',
-        title: 'How to Develop a Progressive Web App',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 4000,
-        tags: ['dev', 'angular']
-      },
-      {
-        id: '003',
-        author: 'Yash Anand',
-        title: 'CI/CD Patterns & Creating your Own',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 3000,
-        tags: ['dev', 'ci/cd']
-      }
-    ]);
+    // this.posts$ = of([
+    //   {
+    //     id: '001',
+    //     author: 'Yash Anand',
+    //     title: 'Bicycle for the Mind',
+    //     created: new Date('2022-02-07T20:42:02+00:00'),
+    //     edited: new Date(),
+    //     editedBy: '',
+    //     wordCount: 500,
+    //     tags: ['daily', 'principles']
+    //   }
+    // ]);
   }
 }

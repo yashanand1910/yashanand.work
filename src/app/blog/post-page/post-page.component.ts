@@ -10,7 +10,9 @@ import { Observable, of } from 'rxjs';
 export class PostPageComponent implements OnInit {
   post$!: Observable<PostPage>;
 
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
   ngOnInit(): void {
     this.post$ = of({
@@ -38,8 +40,9 @@ export class PostPageComponent implements OnInit {
         '* offers webhooks that you can use to rebuild your static site in a fully automated fashion every time your content is modified.\n' +
         '\n' +
         'Extracted from the article [CMS-functionality for static site generators](https://www.contentful.com/r/knowledgebase/contentful-api-cms-static-site-generators/ "CMS-functionality for static site generators"). Read more about the [static site generators supported by Contentful](https://www.contentful.com/developers/docs/tools/staticsitegenerators/ "static site generators supported by Contentful").',
-      dateAdded: new Date(),
-      dateUpdated: new Date(),
+      created: new Date(),
+      edited: new Date(),
+      editedBy: '',
       wordCount: 4000,
       tags: ['dev', 'angular']
     });
