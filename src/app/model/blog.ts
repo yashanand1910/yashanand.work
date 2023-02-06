@@ -6,7 +6,13 @@ export interface Post {
   edited: Date;
   editedBy: string;
   wordCount?: number; // to derive reading time
-  tags?: string[];
+  tags?: Tag[];
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+  color?: string;
 }
 
 export interface PostPage extends Post {

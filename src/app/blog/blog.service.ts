@@ -9,7 +9,7 @@ import {
   QueryDatabaseParameters,
   QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 const log = new Logger('BlogService');
 
@@ -34,11 +34,12 @@ export class BlogService {
           log.debug(page);
           return {
             id: page.id,
-            author: this.getUserName(page, 'Created by'),
-            title: this.getText(page, 'Title'),
+            author: this._getUserName(page, 'Created by'),
+            title: this._getText(page, 'Title'),
             created: new Date(page.created_time),
             edited: new Date(page.last_edited_time),
-            editedBy: this.getUserName(page, 'Last edited by')
+            editedBy: this._getUserName(page, 'Last edited by'),
+            tags: this._getMultiSelect(page, 'Tags')
           };
         });
       })
@@ -49,11 +50,17 @@ export class BlogService {
    *  UTILITIES  *
    ***************/
 
-  private getText = (page: PageObjectResponse, name: string) => {
-    return page.properties[name][name.toLowerCase()][0]['plain_text'];
+  private _getText = (page: PageObjectResponse, name: string) => {
+    return page.properties[name][this.lowerSnakeCase(name)][0]['plain_text'];
   };
 
-  private getUserName = (page: PageObjectResponse, name: string) => {
-    return page.properties[name][name.toLowerCase().split(' ').join('_')]['name'];
+  private _getUserName = (page: PageObjectResponse, name: string) => {
+    return page.properties[name][this.lowerSnakeCase(name)]['name'];
   };
+
+  private _getMultiSelect = (page: PageObjectResponse, name: string) => {
+    return page.properties[name]['multi_select'];
+  };
+
+  private lowerSnakeCase = (str: string) => str.toLowerCase().split(' ').join('_');
 }
