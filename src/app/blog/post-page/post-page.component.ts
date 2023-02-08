@@ -38,7 +38,7 @@ export class PostPageComponent implements OnInit {
     this._getPostId()
       .pipe(switchMap((id) => this.blogService.getPageContent(id)))
       .pipe(first())
-      .subscribe((_) => {
+      .subscribe(() => {
         this.isContentLoading = false;
       });
   }
