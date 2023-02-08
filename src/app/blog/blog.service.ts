@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '@app/model/blog';
-import { Logger } from '@app/shared';
 import { environment } from '@env/environment';
 import {
   PageObjectResponse,
@@ -10,8 +9,6 @@ import {
   QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints';
 import { map } from 'rxjs';
-
-const log = new Logger('BlogService');
 
 @Injectable({
   providedIn: 'root'
@@ -26,12 +23,14 @@ export class BlogService {
     return this.http.post<QueryDatabaseResponse>(`/databases/${id}/query`, JSON.stringify(query));
   };
 
-  getPosts = () => {
-    return this.queryDatabase(this.databaseId, {}).pipe(
+  getPostsPage = (pageSize: number, startCursor?: string) => {
+    return this.queryDatabase(this.databaseId, {
+      page_size: pageSize,
+      start_cursor: startCursor ? startCursor : undefined
+    }).pipe(
       map((response: QueryDatabaseResponse) => {
-        return response.results.map<Post>((res: PageObjectResponse | PartialPageObjectResponse) => {
+        const posts = response.results.map<Post>((res: PageObjectResponse | PartialPageObjectResponse) => {
           const page = <PageObjectResponse>res;
-          log.debug(page);
           return {
             id: page.id,
             author: this._getUserName(page, 'Created by'),
@@ -42,6 +41,10 @@ export class BlogService {
             tags: this._getMultiSelect(page, 'Tags')
           };
         });
+        return {
+          posts: posts,
+          nextCursor: response.next_cursor ? response.next_cursor : ''
+        };
       })
     );
   };

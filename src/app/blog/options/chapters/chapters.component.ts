@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chapters.component.scss']
 })
 export class ChaptersComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // empty
+  }
 }

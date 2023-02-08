@@ -6,6 +6,12 @@
   grid-template-rows: auto $footer-height;
 }
 
+.filler-container {
+  grid-area: filler;
+  margin: $page-gutter;
+  width: $sidebar-width;
+}
+
 .layout-container {
   display: grid;
   grid-template-areas: "sidebar content-container filler";
@@ -27,12 +33,6 @@
   grid-template-columns: $sidebar-width;
   align-content: center;
   margin: $page-gutter;
-}
-
-.filler-container {
-  grid-area: filler;
-  margin: $page-gutter;
-  width: $sidebar-width;
 }
 
 app-navbar {
@@ -94,6 +94,6 @@ app-navbar {
     grid-template-areas: "navbar sidebar-additional";
     grid-template-columns: auto auto;
     justify-content: space-between;
-    margin: $page-gutter-sm $page-gutter-sm 0 $page-gutter-sm !important;
+    margin: $page-gutter-sm $page-gutter-sm 0 $page-gutter-sm;
   }
 }

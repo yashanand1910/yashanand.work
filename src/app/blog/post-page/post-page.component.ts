@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostPage } from '@model/blog';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-page',
