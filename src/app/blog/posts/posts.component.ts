@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '@model/blog';
+import { first } from 'rxjs';
 import { BlogService } from '../blog.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts: Post[] = [];
+  posts: Partial<Post>[] = [];
   isLoading = true;
   private cursorStack: string[] = [];
   private nextCursor = '';
@@ -24,16 +25,19 @@ export class PostsComponent implements OnInit {
 
   getPosts(isNext?: boolean, startCursor?: string) {
     this.isLoading = true;
-    this.blogService.getPostsPage(this.pageSize, startCursor).subscribe((page) => {
-      this.isLoading = false;
-      this.posts = page.posts;
-      this.nextCursor = page.nextCursor;
-      if (isNext) {
-        this.cursorStack.push(this.nextCursor);
-      } else {
-        this.cursorStack.pop();
-      }
-    });
+    this.blogService
+      .getPages(this.pageSize, startCursor)
+      .pipe(first())
+      .subscribe((page) => {
+        this.isLoading = false;
+        this.posts = page.posts;
+        this.nextCursor = page.nextCursor;
+        if (isNext) {
+          this.cursorStack.push(this.nextCursor);
+        } else {
+          this.cursorStack.pop();
+        }
+      });
   }
 
   next() {
