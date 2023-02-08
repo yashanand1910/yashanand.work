@@ -14,7 +14,3 @@ export interface Tag {
   name: string;
   color?: string;
 }
-
-export interface PostPage extends Post {
-  body: string;
-}

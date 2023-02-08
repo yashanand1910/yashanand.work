@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '@model/blog';
 
 @Component({
@@ -7,10 +8,10 @@ import { Post } from '@model/blog';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-  @Input() post: Post | undefined;
+  @Input() post: Partial<Post> | undefined;
   @Input() isLoadingPlaceholder = false;
 
-  constructor() {
+  constructor(private router: Router) {
     // empty
   }
 }

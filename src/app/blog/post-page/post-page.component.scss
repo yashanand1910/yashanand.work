@@ -9,38 +9,62 @@
 
 .post-container {
   grid-area: page;
-  max-width: $page-width;
-}
+  width: $page-width;
 
-.title {
-  @include title;
-
-  font-size: 56px;
-  color: $black;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
-.info-container {
-  .date {
-    color: $light-gray;
-  }
-}
-
-.body {
-  font-size: 21px;
-  line-height: 32px;
-  margin-top: $page-gutter;
-  color: $black;
-}
-
-@media only screen and (max-width: $screen-sm) {
   .title {
-    font-size: 42px;
+    @include title;
+
+    font-size: 56px;
+    color: $black;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: $page-width;
+  }
+
+  .info-container {
+    .date {
+      margin-left: 10px;
+      color: $light-gray;
+    }
   }
 
   .body {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 21px;
+    line-height: 32px;
+    margin-top: $page-gutter;
+    color: $black;
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .placeholder {
+    .title {
+      font-size: 42px;
+    }
+
+    .body {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
+
+.post-container.placeholder {
+  .info-container {
+    height: 24px;
+    width: 100px;
+    background-color: $bg-gray-200;
+  }
+
+  .title {
+    height: 48px;
+    width: 500px;
+    background-color: $bg-gray-400;
+  }
+
+  .tags-container {
+    width: 150px;
+    height: 24px;
+    background-color: $bg-gray-100;
   }
 }
