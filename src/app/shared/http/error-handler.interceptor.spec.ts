@@ -39,14 +39,14 @@ describe('ErrorHandlerInterceptor', () => {
     // Arrange
     // Note: here we spy on private method since target is customization here,
     // but you should replace it by actual behavior in your app
-    jest.spyOn(ErrorHandlerInterceptor.prototype as any, 'errorHandler');
+    jest.spyOn(ErrorHandlerInterceptor.prototype as never, 'errorHandler');
 
     // Act
     http.get('/toto').subscribe(
       () => fail('should error'),
       () => {
         // Assert
-        expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
+        expect(ErrorHandlerInterceptor.prototype['errorHandler']).toHaveBeenCalled();
       }
     );
 

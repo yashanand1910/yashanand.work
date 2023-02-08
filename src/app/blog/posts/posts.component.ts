@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '@model/blog';
-import { Observable } from 'rxjs';
 import { BlogService } from '../blog.service';
 
 @Component({
@@ -9,26 +8,49 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts$!: Observable<Post[]>;
+  posts: Post[] = [];
+  isLoading = true;
+  private cursorStack: string[] = [];
+  private nextCursor = '';
+  private pageSize = 3;
 
   constructor(private blogService: BlogService) {
     // empty
   }
 
   ngOnInit(): void {
-    this.posts$ = this.blogService.getPosts();
+    this.getPosts();
+  }
 
-    // this.posts$ = of([
-    //   {
-    //     id: '001',
-    //     author: 'Yash Anand',
-    //     title: 'Bicycle for the Mind',
-    //     created: new Date('2022-02-07T20:42:02+00:00'),
-    //     edited: new Date(),
-    //     editedBy: '',
-    //     wordCount: 500,
-    //     tags: ['daily', 'principles']
-    //   }
-    // ]);
+  getPosts(isNext?: boolean, startCursor?: string) {
+    this.isLoading = true;
+    this.blogService.getPostsPage(this.pageSize, startCursor).subscribe((page) => {
+      this.isLoading = false;
+      this.posts = page.posts;
+      this.nextCursor = page.nextCursor;
+      if (isNext) {
+        this.cursorStack.push(this.nextCursor);
+      } else {
+        this.cursorStack.pop();
+      }
+    });
+  }
+
+  next() {
+    if (!this.hasNext()) return;
+    this.getPosts(true, this.nextCursor);
+  }
+
+  back() {
+    if (!this.hasPrevious()) return;
+    this.getPosts(false, this.cursorStack[this.cursorStack.length - 1]);
+  }
+
+  hasNext() {
+    return this.nextCursor;
+  }
+
+  hasPrevious() {
+    return this.cursorStack.length > 0;
   }
 }

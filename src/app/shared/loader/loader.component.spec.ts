@@ -3,6 +3,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoaderComponent } from '@shared';
 
 describe('LoaderComponent', () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let component: LoaderComponent;
   let fixture: ComponentFixture<LoaderComponent>;
 

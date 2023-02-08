@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-prettier/recommended"],
+  "extends": ["stylelint-prettier/recommended", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [

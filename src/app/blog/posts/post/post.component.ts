@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from '@model/blog';
 
 @Component({
@@ -8,6 +8,7 @@ import { Post } from '@model/blog';
 })
 export class PostComponent {
   @Input() post: Post | undefined;
+  @Input() isLoadingPlaceholder = false;
 
   constructor() {
     // empty

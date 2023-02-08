@@ -9,8 +9,8 @@ import { concatMap, delay } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
-  name: string = '';
-  role: string = '';
+  name = '';
+  role = '';
   @ViewChild('firstCursor') firstCursor: ElementRef | undefined;
   @ViewChild('secondCursor') secondCursor: ElementRef | undefined;
   private typeDelayFirst = 40;
@@ -24,7 +24,9 @@ export class HomeComponent implements AfterViewInit {
       (letter) => {
         this.name += letter;
       },
-      () => {},
+      () => {
+        // empty
+      },
       () => {
         this.firstCursor?.nativeElement.style.setProperty('display', 'none');
         this.secondCursor?.nativeElement.style.setProperty('display', 'inline');

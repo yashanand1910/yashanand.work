@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, TestBedStatic } from '@angular/core/testing';
 
 type CompilerOptions = Partial<{
-  providers: any[];
+  providers: unknown[];
   useJit: boolean;
   preserveWhitespaces: boolean;
 }>;
@@ -13,9 +13,9 @@ export const configureTests = (configure: ConfigureFn, compilerOptions: Compiler
     ...compilerOptions
   };
 
-  const configuredTestBed = TestBed.configureCompiler(compilerConfig);
+  const configuredTestBed: TestBedStatic = TestBed.configureCompiler(compilerConfig) as unknown as TestBedStatic;
 
-  configure(configuredTestBed);
+  configure(configuredTestBed as TestBedStatic);
 
   return configuredTestBed.compileComponents().then(() => configuredTestBed);
 };

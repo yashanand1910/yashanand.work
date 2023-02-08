@@ -23,7 +23,7 @@ class MockTranslateService {
     return 'en-US';
   }
 
-  setTranslation(lang: string, translations: object, shouldMerge?: boolean) {}
+  // setTranslation(lang: string, translations: object, shouldMerge?: boolean) {}
 }
 
 describe('I18nService', () => {

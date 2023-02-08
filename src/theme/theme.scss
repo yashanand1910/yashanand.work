@@ -67,6 +67,10 @@ a {
 .links-list {
   font-family: $title-font;
 
+  .active {
+    color: $black;
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -94,10 +98,6 @@ a {
     cursor: pointer;
     text-decoration: inherit;
     color: inherit;
-  }
-
-  .active {
-    color: $black;
   }
 }
 

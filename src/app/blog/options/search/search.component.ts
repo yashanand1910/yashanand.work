@@ -9,7 +9,9 @@ import { Observable, of } from 'rxjs';
 export class SearchComponent implements OnInit {
   tags: Observable<string[]> | undefined;
 
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
   ngOnInit(): void {
     this.tags = of(['dev', 'daily', 'principles']);

@@ -10,7 +10,11 @@ import { environment } from '@env/environment';
 export class AboutComponent implements OnInit {
   version: string | null = environment.version;
 
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // empty
+  }
 }

@@ -7,6 +7,9 @@
 }
 
 .posts {
+  /* min-height: 20em; */
+  min-width: 350px;
+
   &:hover {
     ::ng-deep {
       .post {
@@ -26,8 +29,18 @@
 
 .pagination {
   margin-top: $page-gutter;
+  color: $light-gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .button.active {
+    cursor: pointer;
+    color: $gray;
+  }
+
+  .button.active:hover {
+    color: $black;
+  }
 }

@@ -9,7 +9,11 @@ export class LoaderComponent implements OnInit {
   @Input() isLoading = false;
   @Input() message: string | undefined;
 
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // empty
+  }
 }
