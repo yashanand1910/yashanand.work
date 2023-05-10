@@ -31,30 +31,38 @@ export class PostsComponent implements OnInit {
       .subscribe((page) => {
         this.isLoading = false;
         this.posts = page.posts;
-        this.nextCursor = page.nextCursor;
         if (isNext) {
           this.cursorStack.push(this.nextCursor);
-        } else {
+        } else if (isNext === false) {
           this.cursorStack.pop();
+        } else {
+          // when undefined
+          this.cursorStack = [];
         }
+        this.nextCursor = page.nextCursor;
+        console.info(this.cursorStack);
       });
   }
 
-  next() {
-    if (!this.hasNext()) return;
+  older() {
+    if (!this.hasOlder()) return;
     this.getPosts(true, this.nextCursor);
   }
 
-  back() {
-    if (!this.hasPrevious()) return;
-    this.getPosts(false, this.cursorStack[this.cursorStack.length - 1]);
+  newer() {
+    if (!this.hasNewer()) return;
+    if (this.cursorStack.length > 1) {
+      this.getPosts(false, this.cursorStack[this.cursorStack.length - 2]);
+    } else {
+      this.getPosts();
+    }
   }
 
-  hasNext() {
+  hasOlder() {
     return this.nextCursor;
   }
 
-  hasPrevious() {
+  hasNewer() {
     return this.cursorStack.length > 0;
   }
 }

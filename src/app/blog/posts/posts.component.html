@@ -11,7 +11,7 @@
     </div>
   </ng-template>
   <div class="pagination">
-    <div (click)="back()" [class.active]="hasPrevious()" class="button">Newer</div>
-    <div (click)="next()" [class.active]="hasNext()" class="button">Older</div>
+    <div (click)="newer()" [class.active]="hasNewer()" class="button">Newer</div>
+    <div (click)="older()" [class.active]="hasOlder()" class="button">Older</div>
   </div>
 </div>
