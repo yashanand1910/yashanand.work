@@ -40,7 +40,6 @@ export class PostsComponent implements OnInit {
           this.cursorStack = [];
         }
         this.nextCursor = page.nextCursor;
-        console.info(this.cursorStack);
       });
   }
 
