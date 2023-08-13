@@ -43,7 +43,7 @@ export class BlogService {
   getPages(pageSize: number, startCursor?: string) {
     return this.queryDatabase(this.databaseId, {
       page_size: pageSize,
-      start_cursor: startCursor ? startCursor : undefined
+      start_cursor: startCursor
     }).pipe(
       map((response: QueryDatabaseResponse) => {
         const posts = response.results.map<Partial<Post>>(
