@@ -10,6 +10,7 @@ import { SharedModule } from '@shared';
 import { OptionsComponent } from './options/options.component';
 import { SearchComponent } from './options/search/search.component';
 import { ChaptersComponent } from './options/chapters/chapters.component';
+import { BlockComponent } from './post-page/block/block.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ChaptersComponent } from './options/chapters/chapters.component';
     PostPageComponent,
     OptionsComponent,
     SearchComponent,
-    ChaptersComponent
+    ChaptersComponent,
+    BlockComponent
   ],
   imports: [CommonModule, BlogRoutingModule, TimeagoModule.forChild(), SharedModule]
 })

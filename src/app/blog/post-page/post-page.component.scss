@@ -29,6 +29,7 @@
   }
 
   .body {
+    min-height: 40vh;
     font-size: 21px;
     line-height: 32px;
     margin-top: $page-gutter;
@@ -37,16 +38,7 @@
 }
 
 @media only screen and (max-width: $screen-sm) {
-  .placeholder {
-    .title {
-      font-size: 42px;
-    }
-
-    .body {
-      font-size: 18px;
-      line-height: 28px;
-    }
-  }
+  // TODO: deal with smaller screens
 }
 
 .post-container.placeholder {

@@ -1,8 +1,11 @@
 @import "src/theme/theme-variables";
 
 .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 350px;
-  min-height: 74px;
+  min-height: 127px;
   margin: 5px 0;
   box-shadow: 0 20px 25px #f3f3f3;
   padding: 16px;
