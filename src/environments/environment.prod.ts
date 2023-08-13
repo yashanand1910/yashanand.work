@@ -12,7 +12,7 @@ export const environment = {
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
   notion: {
-    baseURI: '/v1', // proxy config is taking care of complete URL
+    baseURI: 'https://api.notion.com/v1',
     version: '2022-06-28',
     secret: env.notion_secret,
     databaseId: env.notion_database_id
