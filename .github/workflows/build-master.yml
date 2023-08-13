@@ -13,6 +13,9 @@ jobs:
   build_and_deploy:
     name: Test, Build & Deploy
     runs-on: ubuntu-latest
+    env:
+      NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     environment:
       name: Live
       url: https://yashanand.dev
@@ -31,9 +34,6 @@ jobs:
         continue-on-error: true # Temporary
 
       - run: npm run build
-        env:
-          NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         name: Build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0

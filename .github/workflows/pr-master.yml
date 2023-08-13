@@ -12,10 +12,12 @@ on:
 jobs:
   build_and_preview:
     name: Test, Build & Deploy Preview
+    env:
+      NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      FIREBASE_HOSTING_LOGS_URL: 'https://console.firebase.google.com/u/0/project/yashanand-dev/hosting/sites/yashanand-dev'
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    env:
-      FIREBASE_HOSTING_LOGS_URL: 'https://console.firebase.google.com/u/0/project/yashanand-dev/hosting/sites/yashanand-dev'
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -42,9 +44,6 @@ jobs:
         continue-on-error: true # Temporary
 
       - run: npm run build:preview
-        env:
-          NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         name: Build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
