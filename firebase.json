@@ -5,7 +5,7 @@
     "rewrites": [
       {
         "source": "/v1/**",
-        "destination": "https://api.notion.com"
+        "destination": "https://api.notion.com/v1"
       },
       {
         "source": "**",
