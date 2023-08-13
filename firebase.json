@@ -2,13 +2,6 @@
   "hosting": {
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "redirects": [
-      {
-        "source": "/v1/**",
-        "destination": "https://api.notion.com/v1",
-        "type": 303
-      }
-    ],
     "rewrites": [
       {
         "source": "**",
