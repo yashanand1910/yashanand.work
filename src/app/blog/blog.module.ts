@@ -10,17 +10,21 @@ import { SharedModule } from '@shared';
 import { OptionsComponent } from './options/options.component';
 import { SearchComponent } from './options/search/search.component';
 import { ChaptersComponent } from './options/chapters/chapters.component';
-import { BlockComponent } from './post-page/block/block.component';
+import { ContentDirective } from './post-page/content.directive';
+import { TextBlockComponent } from './post-page/block/text-block/text-block.component';
+import { RichtextComponent } from './post-page/block/text-block/richtext/richtext.component';
 
 @NgModule({
   declarations: [
+    ContentDirective,
     PostsComponent,
     PostComponent,
     PostPageComponent,
     OptionsComponent,
     SearchComponent,
     ChaptersComponent,
-    BlockComponent
+    TextBlockComponent,
+    RichtextComponent
   ],
   imports: [CommonModule, BlogRoutingModule, TimeagoModule.forChild(), SharedModule]
 })

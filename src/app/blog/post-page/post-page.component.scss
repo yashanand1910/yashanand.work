@@ -1,13 +1,5 @@
 @import "src/theme/theme-variables";
 
-/* :host { */
-/*   display: grid; */
-/*   grid-template-areas: "page"; */
-/*   grid-template-columns: auto; */
-/*   align-content: center; */
-/*   justify-content: start; */
-/* } */
-
 .post-container {
   grid-area: page;
 
@@ -56,10 +48,6 @@
       background: $bg-gray-100;
     }
   }
-}
-
-@media only screen and (max-width: $screen-sm) {
-  // TODO: deal with smaller screens
 }
 
 .placeholder {

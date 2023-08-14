@@ -19,7 +19,9 @@ export interface Tag {
 export enum BlockType {
   HEADING_1,
   HEADING_2,
-  PARAGRAPH
+  HEADING_3,
+  PARAGRAPH,
+  BULLETED_LIST_ITEM
 }
 
 /**

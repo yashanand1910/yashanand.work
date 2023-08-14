@@ -1,0 +1,8 @@
+<ng-container *ngFor="let textPart of text">
+  <ng-container *ngIf="textPart.text.link; else plainText">
+    <a (click)="openLink(textPart.text.link.url)">{{textPart.text.content}}</a>
+  </ng-container>
+  <ng-template #plainText>
+    <span>{{textPart.text.content}}</span>
+  </ng-template>
+</ng-container>

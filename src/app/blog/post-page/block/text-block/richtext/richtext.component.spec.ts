@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockComponent } from './block.component';
+import { RichtextComponent } from './richtext.component';
 
-describe('BlockComponent', () => {
-  let component: BlockComponent;
-  let fixture: ComponentFixture<BlockComponent>;
+describe('RichtextComponent', () => {
+  let component: RichtextComponent;
+  let fixture: ComponentFixture<RichtextComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BlockComponent]
+      declarations: [RichtextComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BlockComponent);
+    fixture = TestBed.createComponent(RichtextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

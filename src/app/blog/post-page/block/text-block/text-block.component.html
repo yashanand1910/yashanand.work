@@ -1,0 +1,14 @@
+<ng-container [ngSwitch]="type">
+  <h1 *ngSwitchCase="types.HEADING_1">
+    <app-richtext [text]="text"></app-richtext>
+  </h1>
+  <h2 *ngSwitchCase="types.HEADING_2">
+    <app-richtext [text]="text"></app-richtext>
+  </h2>
+  <h3 *ngSwitchCase="types.HEADING_3">
+    <app-richtext [text]="text"></app-richtext>
+  </h3>
+  <p *ngSwitchCase="types.PARAGRAPH">
+    <app-richtext [text]="text"></app-richtext>
+  </p>
+</ng-container>
