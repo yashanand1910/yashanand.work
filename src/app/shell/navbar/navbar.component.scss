@@ -1,6 +1,9 @@
 @import "src/theme/theme-variables";
 
 .navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
   color: $light-gray;
   font-size: 36px;
   text-align: right;
@@ -10,21 +13,29 @@
   }
 
   .hidden {
-    opacity: 0;
-    //transition: $normal-time ease-out;
+    display: none;
   }
 
-  ul {
-    &:hover {
-      color: $light-gray;
+  &:hover {
+    color: $light-gray;
 
-      .active {
-        color: inherit;
-      }
+    .active {
+      color: inherit;
+    }
 
-      li:hover {
-        color: $black;
-      }
+    div:hover {
+      color: $black;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+  .navbar {
+    &.wide-layout {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $page-gutter-sm;
+      text-align: left;
     }
   }
 }

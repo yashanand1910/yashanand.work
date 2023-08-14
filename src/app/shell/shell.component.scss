@@ -12,27 +12,36 @@
   width: $sidebar-width;
 }
 
-.layout-container {
-  display: grid;
-  grid-template-areas: "sidebar content-container filler";
-  grid-template-columns: auto auto auto;
-  justify-content: center;
-  align-content: center;
-
-  &.center-layout {
-    .filler-container {
-      display: none;
-    }
-  }
-}
-
 .sidebar-container {
   grid-area: sidebar;
   display: grid;
   grid-template-areas: "navbar" "sidebar-additional";
   grid-template-columns: $sidebar-width;
   align-content: center;
+  justify-content: right;
   margin: $page-gutter;
+}
+
+.layout-container {
+  display: grid;
+  grid-template-areas: "sidebar content-container filler";
+  grid-template-columns: auto $center-content-width auto;
+  justify-content: center;
+  align-content: center;
+
+  &.wide-layout {
+    grid-template-columns: auto $page-width auto;
+
+    .sidebar-container {
+      align-content: start;
+    }
+  }
+
+  &.center-layout {
+    .filler-container {
+      display: none;
+    }
+  }
 }
 
 app-navbar {
@@ -49,9 +58,17 @@ app-navbar {
 }
 
 @media only screen and (max-width: $screen-lg) {
-  .layout-container.wide-layout {
-    .filler-container {
-      display: none;
+  .layout-container {
+    &.wide-layout {
+      .sidebar-container {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .filler-container {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
   }
 }
@@ -65,35 +82,45 @@ app-navbar {
     display: none;
   }
 
-  .layout-container.wide-layout {
-    grid-template-areas: "sidebar" "content-container";
-    grid-template-columns: auto;
-    align-content: space-between;
+  .layout-container {
+    &.wide-layout {
+      grid-template-areas: "sidebar" "content-container";
+      grid-template-columns: auto;
+      align-content: space-between;
 
-    .sidebar-container {
-      grid-template-areas: "navbar sidebar-additional";
-      grid-template-columns: auto auto;
-      justify-content: space-between;
-      margin: $page-gutter $page-gutter 0 $page-gutter;
+      .sidebar-container {
+        grid-template-areas: "navbar sidebar-additional";
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        margin: $page-gutter $page-gutter 0 $page-gutter;
+      }
     }
   }
 }
 
 @media only screen and (max-width: $screen-sm) {
-  .layout-container {
-    grid-template-areas: "sidebar" "content-container";
-    grid-template-columns: 100vw;
-    align-content: space-between;
-  }
-
-  .content-container {
-    margin: $page-gutter-sm;
-  }
-
   .sidebar-container {
     grid-template-areas: "navbar sidebar-additional";
     grid-template-columns: auto auto;
     justify-content: space-between;
     margin: $page-gutter-sm $page-gutter-sm 0 $page-gutter-sm;
+  }
+
+  .layout-container {
+    grid-template-areas: "sidebar" "content-container";
+    grid-template-columns: 100%;
+    align-content: space-between;
+    justify-content: start;
+
+    &.wide-layout {
+      grid-template-columns: auto;
+      .sidebar-container {
+        margin: $page-gutter-sm $page-gutter-sm 0 $page-gutter-sm;
+      }
+    }
+  }
+
+  .content-container {
+    margin: $page-gutter-sm;
   }
 }

@@ -6,10 +6,11 @@
   align-items: center;
 }
 
-.posts {
-  /* min-height: 20em; */
-  min-width: 350px;
+.posts-container {
+  width: 100%;
+}
 
+.posts {
   &:hover {
     ::ng-deep {
       .post {

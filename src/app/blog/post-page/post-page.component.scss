@@ -1,15 +1,15 @@
 @import "src/theme/theme-variables";
 
-:host {
-  display: grid;
-  grid-template-areas: "page filler";
-  grid-template-columns: auto auto;
-  align-items: center;
-}
+/* :host { */
+/*   display: grid; */
+/*   grid-template-areas: "page"; */
+/*   grid-template-columns: auto; */
+/*   align-content: center; */
+/*   justify-content: start; */
+/* } */
 
 .post-container {
   grid-area: page;
-  width: $page-width;
 
   .title {
     @include title;
@@ -18,7 +18,6 @@
     color: $black;
     margin-bottom: 20px;
     margin-top: 10px;
-    width: $page-width;
   }
 
   .info-container {
@@ -29,11 +28,33 @@
   }
 
   .body {
-    min-height: 40vh;
+    min-height: 60vh;
     font-size: 21px;
     line-height: 32px;
     margin-top: $page-gutter;
     color: $black;
+  }
+
+  .body.placeholder {
+    div {
+      margin-bottom: 10px;
+    }
+
+    div:nth-child(1) {
+      height: 36px;
+      width: 100%;
+      background: $bg-gray-100;
+    }
+    div:nth-child(2) {
+      height: 24px;
+      width: 40%;
+      background: $bg-gray-300;
+    }
+    div:nth-child(3) {
+      height: 24px;
+      width: 70%;
+      background: $bg-gray-100;
+    }
   }
 }
 
@@ -41,21 +62,21 @@
   // TODO: deal with smaller screens
 }
 
-.post-container.placeholder {
+.placeholder {
   .info-container {
     height: 24px;
-    width: 100px;
+    width: 40%;
     background-color: $bg-gray-200;
   }
 
   .title {
-    height: 48px;
-    width: 500px;
+    height: 50px;
+    width: 100%;
     background-color: $bg-gray-400;
   }
 
   .tags-container {
-    width: 150px;
+    width: 30%;
     height: 24px;
     background-color: $bg-gray-100;
   }

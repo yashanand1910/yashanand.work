@@ -1,10 +1,8 @@
 <footer>
   <div class="social-list links-list">
-    <ul>
-      <li *ngFor="let item of socialLinks">
-        <a target="_blank" [href]="item.link" [innerHTML]="item.name" translate></a>
-      </li>
-    </ul>
+    <div *ngFor="let item of socialLinks">
+      <a target="_blank" [href]="item.link" [innerHTML]="item.name" translate></a>
+    </div>
   </div>
-  <div class="copyright no-select">&copy; 2022 Yash Anand</div>
+  <div class="copyright no-select">&copy; {{currentYear}} Yash Anand</div>
 </footer>
