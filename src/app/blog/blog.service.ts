@@ -43,7 +43,13 @@ export class BlogService {
   getPages(pageSize: number, startCursor?: string) {
     return this.queryDatabase(this.databaseId, {
       page_size: pageSize,
-      start_cursor: startCursor
+      start_cursor: startCursor,
+      filter: {
+        property: 'Tags',
+        multi_select: {
+          does_not_contain: 'Draft'
+        }
+      }
     }).pipe(
       map((response: QueryDatabaseResponse) => {
         const posts = response.results.map<Partial<Post>>(
