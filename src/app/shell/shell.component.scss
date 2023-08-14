@@ -85,7 +85,7 @@ app-navbar {
   .layout-container {
     &.wide-layout {
       grid-template-areas: "sidebar" "content-container";
-      grid-template-columns: auto;
+      grid-template-columns: $page-width;
       align-content: space-between;
 
       .sidebar-container {
