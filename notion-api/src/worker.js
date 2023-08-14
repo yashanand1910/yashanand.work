@@ -1,5 +1,5 @@
 export default {
-	async fetch(request) {
+	async fetch(request, env) {
 		const corsHeaders = {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
@@ -48,6 +48,9 @@ export default {
 			// that this request is not cross-site.
 			request = new Request(apiUrl, request);
 			request.headers.set('Origin', new URL(apiUrl).origin);
+			// Set notion API secret
+			request.headers.set('Authorization', env.NOTION_SECRET);
+
 			let response = await fetch(request);
 
 			// Recreate the response so you can modify the headers
