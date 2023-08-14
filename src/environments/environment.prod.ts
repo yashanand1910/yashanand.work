@@ -12,7 +12,7 @@ export const environment = {
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
   notion: {
-    baseURI: 'notion-api.yashanand1910.workers.dev',
+    baseURI: 'https://notion-api.yashanand1910.workers.dev',
     version: '2022-06-28',
     secret: env.NOTION_SECRET,
     databaseId: env.NOTION_DATABASE_ID
