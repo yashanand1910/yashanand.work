@@ -14,7 +14,6 @@ jobs:
     name: Test, Build & Deploy
     runs-on: ubuntu-latest
     env:
-      NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     environment:
       name: Live

@@ -9,11 +9,15 @@ import { environment } from '@env/environment';
 @Injectable()
 export class AuthorizationInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const headers = request.headers
+      .set('Notion-Version', environment.notion.version)
+      .set('Content-Type', 'application/json');
+    if (!environment.production) {
+      // For dev we set it directly from environment
+      headers.set('Authorization', `Bearer ${environment.notion.secret}`);
+    }
     request = request.clone({
-      headers: request.headers
-        .set('Authorization', `Bearer ${environment.notion.secret}`)
-        .set('Notion-Version', environment.notion.version)
-        .set('Content-Type', 'application/json')
+      headers
     });
     return next.handle(request);
   }
