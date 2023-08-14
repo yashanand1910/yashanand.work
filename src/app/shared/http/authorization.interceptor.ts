@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
@@ -9,13 +9,19 @@ import { environment } from '@env/environment';
 @Injectable()
 export class AuthorizationInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const headers = request.headers
-      .set('Notion-Version', environment.notion.version)
-      .set('Content-Type', 'application/json');
-    if (!environment.production) {
+    let headers: HttpHeaders;
+    if (environment.production) {
+      headers = request.headers
+        .set('Notion-Version', environment.notion.version)
+        .set('Content-Type', 'application/json');
+    } else {
       // For dev we set it directly from environment
-      headers.set('Authorization', `Bearer ${environment.notion.secret}`);
+      headers = request.headers
+        .set('Notion-Version', environment.notion.version)
+        .set('Content-Type', 'application/json')
+        .set('Authorization', `Bearer ${environment.notion.secret}`);
     }
+
     request = request.clone({
       headers
     });
