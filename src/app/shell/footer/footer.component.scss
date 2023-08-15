@@ -4,9 +4,10 @@ footer {
   color: $black;
   text-align: center;
   height: $footer-height;
-  display: grid;
-  justify-content: center;
-  align-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .copyright {
@@ -14,25 +15,37 @@ footer {
 }
 
 .social-list {
-  width: 100vw;
+  width: $center-content-width;
   font-size: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  grid-column-gap: $page-gutter;
 
-  ul {
-    margin: 0 $page-gutter;
-    display: grid;
-    justify-content: center;
-    grid-auto-flow: column;
-    grid-column-gap: $page-gutter;
+  div:first-child {
+    text-align: left;
+    margin-left: $page-gutter;
+  }
+
+  div:last-child {
+    text-align: right;
+    margin-right: $page-gutter;
   }
 }
 
 @media only screen and (max-width: $screen-sm) {
   .social-list {
+    width: 100%;
     font-size: 20px;
+    justify-content: space-between;
+    grid-column-gap: 0;
 
-    ul {
-      justify-content: space-between;
-      margin: 0 $page-gutter-sm;
+    div:first-child {
+      margin-left: $page-gutter-sm;
+    }
+
+    div:last-child {
+      margin-right: $page-gutter-sm;
     }
   }
 }

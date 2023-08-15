@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* global mocks for jsdom */
 const storageMock = () => {
   let storage: { [key: string]: string } = {};
@@ -26,19 +27,23 @@ Object.defineProperty(document.body.style, 'transform', {
 
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ({
-    getPropertyValue: (prop: any) => {
+    getPropertyValue: (prop: unknown) => {
       return '';
     }
   })
 });
 
 Object.defineProperty(window, 'matchMedia', {
-  value: (query: any) => ({
+  value: (query: unknown) => ({
     matches: false,
     media: query,
-    onchange: null as any,
-    addListener: () => {},
-    removeListener: () => {}
+    onchange: null as unknown,
+    addListener: () => {
+      // empty
+    },
+    removeListener: () => {
+      // empty
+    }
   })
 });
 

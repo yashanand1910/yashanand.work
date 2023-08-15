@@ -9,7 +9,12 @@ import { env } from './.env';
 export const environment = {
   production: true,
   version: env.npm_package_version,
-  serverUrl: 'https://api.chucknorris.io',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US']
+  supportedLanguages: ['en-US'],
+  notion: {
+    baseURI: 'https://notion-api.yashanand1910.workers.dev',
+    version: '2022-06-28',
+    secret: env.NOTION_SECRET,
+    databaseId: env.NOTION_DATABASE_ID
+  }
 };

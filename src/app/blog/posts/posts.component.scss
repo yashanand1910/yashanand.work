@@ -6,6 +6,14 @@
   align-items: center;
 }
 
+.empty {
+  text-align: center;
+}
+
+.posts-container {
+  width: 100%;
+}
+
 .posts {
   &:hover {
     ::ng-deep {
@@ -26,8 +34,18 @@
 
 .pagination {
   margin-top: $page-gutter;
+  color: $light-gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .button.active {
+    cursor: pointer;
+    color: $gray;
+  }
+
+  .button.active:hover {
+    color: $black;
+  }
 }

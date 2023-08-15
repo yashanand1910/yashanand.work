@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-prettier/recommended"],
+  "extends": ["stylelint-prettier/recommended", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [
@@ -33,7 +33,7 @@
         "ignorePseudoElements": ["ng-deep"]
       }
     ],
-    "unit-allowed-list": ["px", "%", "em", "rem", "vw", "vh", "deg", "s"],
+    "unit-allowed-list": ["px", "%", "em", "rem", "vw", "vh", "deg", "s", "fr"],
     "max-empty-lines": 2,
     "max-line-length": 120
   }

@@ -1,8 +1,20 @@
-<div class="post">
-  <div class="date-added">{{ post?.dateAdded | timeago }}</div>
-  <div class="title"><a [routerLink]="['.']">{{ post?.title }}</a></div>
+<div *ngIf="!isLoadingPlaceholder; else loadingPlaceholder" class="post">
+  <div class="date-added">{{ post?.created | timeago }}</div>
+  <div class="title"><a [routerLink]="[post?.id]">{{ post?.title }}</a></div>
   <div class="min-read">{{ post?.wordCount | readingTime }}</div>
   <div class="tags-container">
-    <span *ngFor="let tag of post?.tags" class="tag">{{ tag }}</span>
+    <span *ngFor="let tag of post?.tags" class="tag">{{ tag.name }}</span>
   </div>
 </div>
+
+<ng-template #loadingPlaceholder>
+  <div class="post placeholder">
+    <div class="date-added"></div>
+    <div class="title"></div>
+    <div class="min-read"></div>
+    <div class="tags-container">
+      <span class="tag"></span>
+      <span class="tag"></span>
+    </div>
+  </div>
+</ng-template>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '@model/blog';
-import { Observable, of } from 'rxjs';
+import { first } from 'rxjs';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-posts',
@@ -8,39 +9,59 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts$!: Observable<Post[]>;
+  posts: Partial<Post>[] = [];
+  isLoading = true;
+  private cursorStack: string[] = [];
+  private nextCursor = '';
+  private pageSize = 3;
 
-  constructor() {}
+  constructor(private blogService: BlogService) {
+    // empty
+  }
 
   ngOnInit(): void {
-    this.posts$ = of([
-      {
-        id: '001',
-        author: 'Yash Anand',
-        title: 'Bicycle for the Mind',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 500,
-        tags: ['daily', 'principles']
-      },
-      {
-        id: '002',
-        author: 'Yash Anand',
-        title: 'How to Develop a Progressive Web App',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 4000,
-        tags: ['dev', 'angular']
-      },
-      {
-        id: '003',
-        author: 'Yash Anand',
-        title: 'CI/CD Patterns & Creating your Own',
-        dateAdded: new Date('2022-02-07T20:42:02+00:00'),
-        dateUpdated: new Date(),
-        wordCount: 3000,
-        tags: ['dev', 'ci/cd']
-      }
-    ]);
+    this.getPosts();
+  }
+
+  getPosts(isNext?: boolean, startCursor?: string) {
+    this.isLoading = true;
+    this.blogService
+      .getPages(this.pageSize, startCursor)
+      .pipe(first())
+      .subscribe((page) => {
+        this.isLoading = false;
+        this.posts = page.posts;
+        if (isNext) {
+          this.cursorStack.push(this.nextCursor);
+        } else if (isNext === false) {
+          this.cursorStack.pop();
+        } else {
+          // when undefined
+          this.cursorStack = [];
+        }
+        this.nextCursor = page.nextCursor;
+      });
+  }
+
+  older() {
+    if (!this.hasOlder()) return;
+    this.getPosts(true, this.nextCursor);
+  }
+
+  newer() {
+    if (!this.hasNewer()) return;
+    if (this.cursorStack.length > 1) {
+      this.getPosts(false, this.cursorStack[this.cursorStack.length - 2]);
+    } else {
+      this.getPosts();
+    }
+  }
+
+  hasOlder() {
+    return this.nextCursor;
+  }
+
+  hasNewer() {
+    return this.cursorStack.length > 0;
   }
 }

@@ -37,10 +37,12 @@ b {
 }
 
 a {
+  cursor: pointer;
   color: inherit;
   transition: $normal-time;
   //text-decoration-style: dashed;
-  text-decoration-color: $light-gray;
+  text-decoration: underline;
+  text-decoration-color: $gray;
 
   &:hover {
     color: $black;
@@ -67,26 +69,28 @@ a {
 .links-list {
   font-family: $title-font;
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    transition: $normal-time ease-out;
+  .active {
+    color: $black;
+  }
 
-    li {
-      transition: $normal-time ease-out;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: $normal-time ease-out;
+
+  div {
+    transition: $normal-time ease-out;
+  }
+
+  &:hover {
+    color: $light-gray;
+
+    .active {
+      color: inherit;
     }
 
-    &:hover {
-      color: $light-gray;
-
-      .active {
-        color: inherit;
-      }
-
-      li:hover {
-        color: $black;
-      }
+    div:hover {
+      color: $black;
     }
   }
 
@@ -94,10 +98,6 @@ a {
     cursor: pointer;
     text-decoration: inherit;
     color: inherit;
-  }
-
-  .active {
-    color: $black;
   }
 }
 

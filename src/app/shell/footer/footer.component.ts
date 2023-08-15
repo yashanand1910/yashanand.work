@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  currentYear = new Date().getFullYear();
   socialLinks = [
     {
       name: 'email',
@@ -21,7 +22,11 @@ export class FooterComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // empty
+  }
 }

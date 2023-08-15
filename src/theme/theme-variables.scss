@@ -12,6 +12,12 @@ $gray: #656565;
 $light-gray: #bbbbbb;
 $lightest-gray: #f6f6f6;
 
+// Placeholder
+$bg-gray-100: #f7f7f7;
+$bg-gray-200: #f0f0f0;
+$bg-gray-300: #e7e7e7;
+$bg-gray-400: #e0e0e0;
+
 // Fonts
 $primary-font: "Barlow", sans-serif;
 $title-font: "Abril Fatface", cursive;
@@ -19,9 +25,12 @@ $title-font: "Abril Fatface", cursive;
 // Lengths
 $page-gutter: 48px;
 $footer-height: 120px;
-$page-gutter-sm: 36px;
+$page-gutter-sm: 24px;
 $sidebar-width: 160px;
-$page-width: 680px;
+$center-content-width: 500px;
+$page-width: 740px;
+$paragraph-gap: 46px;
+$paragraph-gap-sm: 32px;
 
 // Duration
 $normal-time: 0.15s;
@@ -51,6 +60,7 @@ $screen-xs: 400px;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+  // stylelint-disable
   user-drag: none;
 }
 

@@ -8,16 +8,22 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class RouteReusableStrategy extends RouteReuseStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public shouldDetach(route: ActivatedRouteSnapshot): boolean {
     return false;
   }
 
-  public store(route: ActivatedRouteSnapshot, detachedTree: DetachedRouteHandle | null): void {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public store(route: ActivatedRouteSnapshot, detachedTree: DetachedRouteHandle | null): void {
+    // empty
+  }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public shouldAttach(route: ActivatedRouteSnapshot): boolean {
     return false;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     return null;
   }

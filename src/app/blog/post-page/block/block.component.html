@@ -1,0 +1,36 @@
+<ng-container [ngSwitch]="type">
+  <div class="image-container" *ngSwitchCase="types.IMAGE">
+    <app-image [file]="file"></app-image>
+  </div>
+  <h1 *ngSwitchCase="types.HEADING_1">
+    <app-richtext [text]="text"></app-richtext>
+  </h1>
+  <h2 *ngSwitchCase="types.HEADING_2">
+    <app-richtext [text]="text"></app-richtext>
+  </h2>
+  <h3 *ngSwitchCase="types.HEADING_3">
+    <app-richtext [text]="text"></app-richtext>
+  </h3>
+  <p *ngSwitchCase="types.PARAGRAPH">
+    <app-richtext [text]="text"></app-richtext>
+  </p>
+  <li *ngSwitchCase="types.NUMBERED_LIST_ITEM">
+    <app-richtext [text]="text"></app-richtext>
+  </li>
+  <li *ngSwitchCase="types.BULLETED_LIST_ITEM">
+    <app-richtext [text]="text"></app-richtext>
+  </li>
+  <ol *ngSwitchCase="types.NUMBERED_LIST">
+    <ng-container *ngFor="let block of listItems">
+      <app-block [block]="block"></app-block>
+    </ng-container>
+  </ol>
+  <ul *ngSwitchCase="types.BULLETED_LIST">
+    <ng-container *ngFor="let block of listItems">
+      <app-block [block]="block"></app-block>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-container *ngFor="let child of children">
+  <app-block [block]="child"></app-block>
+</ng-container>

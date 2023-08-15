@@ -4,11 +4,11 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@app/shared';
 import { I18nService } from '@app/i18n';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 const log = new Logger('App');
 

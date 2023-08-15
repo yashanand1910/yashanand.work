@@ -13,9 +13,14 @@ import { env } from './.env';
 export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
-  serverUrl: '/api',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US']
+  supportedLanguages: ['en-US'],
+  notion: {
+    baseURI: '/api', // proxy config is taking care of complete URL
+    version: '2022-06-28',
+    secret: env.NOTION_SECRET,
+    databaseId: env.NOTION_DATABASE_ID
+  }
 };
 
 /*
@@ -25,4 +30,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error'; // Included with Angular CLI.
+import 'zone.js/plugins/zone-error'; // Included with Angular CLI.
