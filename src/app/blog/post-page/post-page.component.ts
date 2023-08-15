@@ -100,6 +100,6 @@ export class PostPageComponent implements OnInit {
    * @brief Get `postId` from URL params
    */
   private retrievePostId() {
-    return this.route.params.pipe(first()).pipe(map((params) => (this.postId = params['id'])));
+    return this.route.params.pipe(map((params) => (this.postId = params['id'])));
   }
 }

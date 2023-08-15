@@ -89,7 +89,7 @@ app-navbar {
       align-content: space-between;
 
       .sidebar-container {
-        grid-template-areas: "navbar sidebar-additional";
+        grid-template-areas: "navbar" "sidebar-additional";
         grid-template-columns: auto auto;
         justify-content: space-between;
         margin: $page-gutter $page-gutter 0 $page-gutter;
