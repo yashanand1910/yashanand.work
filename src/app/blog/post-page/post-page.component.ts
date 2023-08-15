@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Block, Post } from '@app/model/blog';
 import { Logger } from '@app/shared';
-import { concatMap, first, map, tap } from 'rxjs';
+import { concatMap, first, map } from 'rxjs';
 import { BlogService } from '../blog.service';
 import { BlockComponent } from './block/block.component';
 import { TextBlockComponent } from './block/text-block/text-block.component';
@@ -30,7 +30,7 @@ export class PostPageComponent implements OnInit {
     this.retrievePostId()
       .pipe(concatMap(() => this.loadPage()))
       .pipe(concatMap(() => this.loadContent()))
-      .pipe(tap(() => this.renderContent()))
+      .pipe(map(() => this.renderContent()))
       .subscribe();
   }
 

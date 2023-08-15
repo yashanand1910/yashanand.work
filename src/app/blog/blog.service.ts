@@ -13,7 +13,7 @@ import {
   QueryDatabaseParameters,
   QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints';
-import { map } from 'rxjs';
+import { first, forkJoin, map, mergeMap, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +30,6 @@ export class BlogService {
 
   private retrievePage(id: string) {
     return this.http.get<PageObjectResponse>(`/pages/${id}`);
-  }
-
-  private retrieveBlock(id: string) {
-    return this.http.get<BlockObjectResponse>(`/blocks/${id}`);
   }
 
   private retrieveBlockChildren(id: string) {
@@ -79,15 +75,30 @@ export class BlogService {
     );
   }
 
+  /**
+   * @brief Retrieve all blocks for a page `id`.
+   * Recursively retrieves all children blocks as well.
+   */
   getPageContent(id: string) {
     return this.retrieveBlockChildren(id).pipe(
-      map((response: ListBlockChildrenResponse) => {
+      mergeMap((response: ListBlockChildrenResponse) => {
+        const childGetRequests: Observable<Block[]>[] = [];
         const blocks = response.results.reduce(
           (acc: Block[], block: BlockObjectResponse | PartialBlockObjectResponse) => {
-            // We accumulate numbered/bulleted list items nested lists
             const parsedBlock = BlogService.parseBlock(block as BlockObjectResponse);
+
+            // Populate list of observables for fetching children
+            if (parsedBlock.hasChildren) {
+              childGetRequests.push(
+                this.getPageContent(parsedBlock.id)
+                  .pipe(first())
+                  .pipe(tap((children) => (parsedBlock.children = children)))
+              );
+            }
+
             const lastBlock = acc.length > 0 ? acc[acc.length - 1] : null;
 
+            // We accumulate numbered/bulleted list items nested lists
             switch (parsedBlock.type) {
               case BlockType.NUMBERED_LIST_ITEM:
                 // If list ongoing, append to it otherwise create a new list
@@ -95,6 +106,7 @@ export class BlogService {
                   lastBlock.listItems?.push(parsedBlock);
                 } else {
                   acc.push({
+                    id: '',
                     type: BlockType.NUMBERED_LIST,
                     hasChildren: false,
                     richText: [],
@@ -108,6 +120,7 @@ export class BlogService {
                   lastBlock.listItems?.push(parsedBlock);
                 } else {
                   acc.push({
+                    id: '',
                     type: BlockType.BULLETED_LIST,
                     hasChildren: false,
                     richText: [],
@@ -125,10 +138,11 @@ export class BlogService {
           []
         );
 
-        // const blocks = response.results.map<Block>((block: BlockObjectResponse | PartialBlockObjectResponse) => {
-        //   return BlogService.parseBlock(block as BlockObjectResponse);
-        // });
-        return blocks;
+        if (childGetRequests.length > 0) {
+          return forkJoin(childGetRequests).pipe(map(() => blocks));
+        } else {
+          return of(blocks);
+        }
       })
     );
   }
@@ -139,6 +153,7 @@ export class BlogService {
 
   private static parseBlock(block: BlockObjectResponse): Block {
     return {
+      id: block.id,
       hasChildren: block.has_children,
       type: BlockType[block.type.toUpperCase()],
       richText: block[block.type]['rich_text']

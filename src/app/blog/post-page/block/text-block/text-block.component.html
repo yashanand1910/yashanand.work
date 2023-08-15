@@ -28,3 +28,6 @@
     </ng-container>
   </ul>
 </ng-container>
+<ng-container *ngFor="let child of children">
+  <app-text-block [block]="child"></app-text-block>
+</ng-container>

@@ -32,10 +32,12 @@ export enum BlockType {
  * of a list of blocks in Notion
  */
 export interface Block {
+  id: string;
   hasChildren: boolean;
   type: BlockType;
   richText: RichText[];
   listItems?: Block[];
+  children?: Block[];
 }
 
 // TODO: Create an open-source library for Notion rich text rendering
