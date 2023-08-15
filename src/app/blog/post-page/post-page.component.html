@@ -6,8 +6,10 @@
   <div class="tags-container">
     <span *ngFor="let tag of post.tags" class="tag">{{ tag.name }}</span>
   </div>
-  <div [class.body]="!isContentLoading">
-    <ng-template appContent></ng-template>
+  <div class="body" *ngIf="!isContentLoading">
+    <ng-container *ngFor="let block of content">
+      <app-block [block]="block"></app-block>
+    </ng-container>
   </div>
   <div *ngIf="isContentLoading" class="placeholder body">
     <div></div>

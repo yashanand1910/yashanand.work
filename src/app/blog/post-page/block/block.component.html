@@ -19,15 +19,15 @@
   </li>
   <ol *ngSwitchCase="types.NUMBERED_LIST">
     <ng-container *ngFor="let block of listItems">
-      <app-text-block [block]="block"></app-text-block>
+      <app-block [block]="block"></app-block>
     </ng-container>
   </ol>
   <ul *ngSwitchCase="types.BULLETED_LIST">
     <ng-container *ngFor="let block of listItems">
-      <app-text-block [block]="block"></app-text-block>
+      <app-block [block]="block"></app-block>
     </ng-container>
   </ul>
 </ng-container>
 <ng-container *ngFor="let child of children">
-  <app-text-block [block]="child"></app-text-block>
+  <app-block [block]="child"></app-block>
 </ng-container>

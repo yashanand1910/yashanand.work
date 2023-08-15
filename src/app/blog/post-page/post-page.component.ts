@@ -4,8 +4,6 @@ import { Block, Post } from '@app/model/blog';
 import { Logger } from '@app/shared';
 import { concatMap, first, map } from 'rxjs';
 import { BlogService } from '../blog.service';
-import { BlockComponent } from './block/block.component';
-import { TextBlockComponent } from './block/text-block/text-block.component';
 import { ContentDirective } from './content.directive';
 
 const log = new Logger('PostPage');
@@ -30,7 +28,6 @@ export class PostPageComponent implements OnInit {
     this.retrievePostId()
       .pipe(concatMap(() => this.loadPage()))
       .pipe(concatMap(() => this.loadContent()))
-      .pipe(map(() => this.renderContent()))
       .subscribe();
   }
 
@@ -66,34 +63,6 @@ export class PostPageComponent implements OnInit {
           this.isContentLoading = false;
         })
       );
-  }
-
-  /**
-   * @brief Render each block by inserting appropriate
-   *        components into `contentHost`
-   *
-   * @pre   `content` should be initialized
-   */
-  renderContent() {
-    const contentHostRef = this.appContent.viewContainerRef;
-    contentHostRef.clear();
-
-    this.content.forEach((block: Block) => {
-      const { component, input } = this.getComponentForBlock(block);
-      const blockRef = contentHostRef.createComponent<BlockComponent>(component);
-      blockRef.instance.block = input;
-    });
-  }
-
-  /**
-   * @brief Get appropriate component for a Notion `block`
-   *
-   * @param block Block to get component for
-   *
-   * @return  And object containing `BlockComponent`, Input to `BlockComponent`
-   */
-  getComponentForBlock(block: Block) {
-    return { component: TextBlockComponent, input: block };
   }
 
   /**

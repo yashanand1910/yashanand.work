@@ -11,8 +11,8 @@ import { OptionsComponent } from './options/options.component';
 import { SearchComponent } from './options/search/search.component';
 import { ChaptersComponent } from './options/chapters/chapters.component';
 import { ContentDirective } from './post-page/content.directive';
-import { TextBlockComponent } from './post-page/block/text-block/text-block.component';
-import { RichtextComponent } from './post-page/block/text-block/richtext/richtext.component';
+import { RichtextComponent } from './post-page/block/richtext/richtext.component';
+import { BlockComponent } from './post-page/block/block.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { RichtextComponent } from './post-page/block/text-block/richtext/richtex
     OptionsComponent,
     SearchComponent,
     ChaptersComponent,
-    TextBlockComponent,
+    BlockComponent,
     RichtextComponent
   ],
   imports: [CommonModule, BlogRoutingModule, TimeagoModule.forChild(), SharedModule]
