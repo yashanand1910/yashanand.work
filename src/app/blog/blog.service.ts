@@ -156,7 +156,8 @@ export class BlogService {
       id: block.id,
       hasChildren: block.has_children,
       type: BlockType[block.type.toUpperCase()],
-      richText: block[block.type]['rich_text']
+      richText: block[block.type]['rich_text'],
+      file: block[block.type]['file']
     };
   }
 

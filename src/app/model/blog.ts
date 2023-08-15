@@ -24,7 +24,8 @@ export enum BlockType {
   BULLETED_LIST,
   NUMBERED_LIST,
   BULLETED_LIST_ITEM,
-  NUMBERED_LIST_ITEM
+  NUMBERED_LIST_ITEM,
+  IMAGE
 }
 
 /**
@@ -35,12 +36,16 @@ export interface Block {
   id: string;
   hasChildren: boolean;
   type: BlockType;
-  richText: RichText[];
+  richText?: RichText[];
+  file?: File;
   listItems?: Block[];
   children?: Block[];
 }
 
-// TODO: Create an open-source library for Notion rich text rendering
+export interface File {
+  url: string;
+}
+
 export interface RichText {
   text: RTText;
   annotations: {

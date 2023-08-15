@@ -8,7 +8,7 @@ import { RichText } from '@app/model/blog';
   styleUrls: ['./richtext.component.scss']
 })
 export class RichtextComponent {
-  @Input() text!: RichText[];
+  @Input() text: RichText[] | undefined;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 

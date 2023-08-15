@@ -1,4 +1,7 @@
 <ng-container [ngSwitch]="type">
+  <div class="image-container" *ngSwitchCase="types.IMAGE">
+    <app-image [file]="file"></app-image>
+  </div>
   <h1 *ngSwitchCase="types.HEADING_1">
     <app-richtext [text]="text"></app-richtext>
   </h1>

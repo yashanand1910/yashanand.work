@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Block, BlockType, RichText } from '@app/model/blog';
+import { Block, BlockType, File, RichText } from '@app/model/blog';
 
 @Component({
   selector: 'app-block',
@@ -9,7 +9,8 @@ import { Block, BlockType, RichText } from '@app/model/blog';
 export class BlockComponent implements OnInit {
   @Input() block!: Block;
   type!: BlockType;
-  text!: RichText[];
+  text: RichText[] | undefined;
+  file: File | undefined;
   listItems!: Block[];
   children!: Block[];
   link!: string;
@@ -17,10 +18,11 @@ export class BlockComponent implements OnInit {
   /** Pre-process the block to fill required fields */
   ngOnInit() {
     // TODO: deal with children
-    const { type, richText, listItems, children } = this.block;
+    const { type, richText, listItems, children, file } = this.block;
 
     this.type = type;
     this.text = richText;
+    this.file = file;
     if (listItems != undefined) {
       this.listItems = listItems;
     }

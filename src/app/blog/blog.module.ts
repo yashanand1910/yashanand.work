@@ -13,6 +13,7 @@ import { ChaptersComponent } from './options/chapters/chapters.component';
 import { ContentDirective } from './post-page/content.directive';
 import { RichtextComponent } from './post-page/block/richtext/richtext.component';
 import { BlockComponent } from './post-page/block/block.component';
+import { ImageComponent } from './post-page/block/image/image.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BlockComponent } from './post-page/block/block.component';
     SearchComponent,
     ChaptersComponent,
     BlockComponent,
-    RichtextComponent
+    RichtextComponent,
+    ImageComponent
   ],
   imports: [CommonModule, BlogRoutingModule, TimeagoModule.forChild(), SharedModule]
 })
