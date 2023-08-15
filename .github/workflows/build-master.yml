@@ -32,8 +32,11 @@ jobs:
         name: Run unit tests
         continue-on-error: true # Temporary
 
+      - run: npm run prerender
+        name: Build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        name: Build & deploy
+        name: Deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_YASHANAND_DEV }}'
