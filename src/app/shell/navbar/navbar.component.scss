@@ -34,7 +34,7 @@
     &.wide-layout {
       flex-direction: row;
       justify-content: space-between;
-      gap: $page-gutter-sm;
+      gap: 10px;
       text-align: left;
     }
   }
