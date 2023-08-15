@@ -42,7 +42,7 @@ jobs:
         name: Run unit tests
         continue-on-error: true # Temporary
 
-      - run: npm run build:preview
+      - run: npm run prerender
         name: Build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
