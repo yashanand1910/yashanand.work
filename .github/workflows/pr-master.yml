@@ -42,11 +42,8 @@ jobs:
         name: Run unit tests
         continue-on-error: true # Temporary
 
-      - run: npm run prerender
-        name: Build
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        name: Deploy preview
+        name: Build & deploy preview
         id: deployment
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -54,6 +51,7 @@ jobs:
           projectId: yashanand-dev
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
 
       - name: Finish deployment
         uses: bobheadxi/deployments@v0.6.0
