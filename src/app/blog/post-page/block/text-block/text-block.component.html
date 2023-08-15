@@ -11,4 +11,20 @@
   <p *ngSwitchCase="types.PARAGRAPH">
     <app-richtext [text]="text"></app-richtext>
   </p>
+  <li *ngSwitchCase="types.NUMBERED_LIST_ITEM">
+    <app-richtext [text]="text"></app-richtext>
+  </li>
+  <li *ngSwitchCase="types.BULLETED_LIST_ITEM">
+    <app-richtext [text]="text"></app-richtext>
+  </li>
+  <ol *ngSwitchCase="types.NUMBERED_LIST">
+    <ng-container *ngFor="let block of listItems">
+      <app-text-block [block]="block"></app-text-block>
+    </ng-container>
+  </ol>
+  <ul *ngSwitchCase="types.BULLETED_LIST">
+    <ng-container *ngFor="let block of listItems">
+      <app-text-block [block]="block"></app-text-block>
+    </ng-container>
+  </ul>
 </ng-container>

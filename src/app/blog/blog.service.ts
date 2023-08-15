@@ -82,9 +82,52 @@ export class BlogService {
   getPageContent(id: string) {
     return this.retrieveBlockChildren(id).pipe(
       map((response: ListBlockChildrenResponse) => {
-        const blocks = response.results.map<Block>((block: BlockObjectResponse | PartialBlockObjectResponse) => {
-          return BlogService.parseBlock(block as BlockObjectResponse);
-        });
+        const blocks = response.results.reduce(
+          (acc: Block[], block: BlockObjectResponse | PartialBlockObjectResponse) => {
+            // We accumulate numbered/bulleted list items nested lists
+            const parsedBlock = BlogService.parseBlock(block as BlockObjectResponse);
+            const lastBlock = acc.length > 0 ? acc[acc.length - 1] : null;
+
+            switch (parsedBlock.type) {
+              case BlockType.NUMBERED_LIST_ITEM:
+                // If list ongoing, append to it otherwise create a new list
+                if (lastBlock && lastBlock.type == BlockType.NUMBERED_LIST) {
+                  lastBlock.listItems?.push(parsedBlock);
+                } else {
+                  acc.push({
+                    type: BlockType.NUMBERED_LIST,
+                    hasChildren: false,
+                    richText: [],
+                    listItems: [parsedBlock]
+                  });
+                }
+                break;
+              case BlockType.BULLETED_LIST_ITEM:
+                // If list ongoing, append to it otherwise create a new list
+                if (lastBlock && lastBlock.type == BlockType.BULLETED_LIST) {
+                  lastBlock.listItems?.push(parsedBlock);
+                } else {
+                  acc.push({
+                    type: BlockType.BULLETED_LIST,
+                    hasChildren: false,
+                    richText: [],
+                    listItems: [parsedBlock]
+                  });
+                }
+                break;
+              default:
+                acc.push(parsedBlock);
+                break;
+            }
+
+            return acc;
+          },
+          []
+        );
+
+        // const blocks = response.results.map<Block>((block: BlockObjectResponse | PartialBlockObjectResponse) => {
+        //   return BlogService.parseBlock(block as BlockObjectResponse);
+        // });
         return blocks;
       })
     );

@@ -21,6 +21,8 @@ export enum BlockType {
   HEADING_2,
   HEADING_3,
   PARAGRAPH,
+  BULLETED_LIST,
+  NUMBERED_LIST,
   BULLETED_LIST_ITEM,
   NUMBERED_LIST_ITEM
 }
@@ -33,6 +35,7 @@ export interface Block {
   hasChildren: boolean;
   type: BlockType;
   richText: RichText[];
+  listItems?: Block[];
 }
 
 // TODO: Create an open-source library for Notion rich text rendering

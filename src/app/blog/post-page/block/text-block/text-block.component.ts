@@ -11,15 +11,19 @@ export class TextBlockComponent implements BlockComponent, OnInit {
   @Input() block!: Block;
   type!: BlockType;
   text!: RichText[];
+  listItems!: Block[];
   link!: string;
 
   /** Pre-process the block to fill required fields */
   ngOnInit() {
     // TODO: deal with children
-    const { type, richText } = this.block;
+    const { type, richText, listItems } = this.block;
 
     this.type = type;
     this.text = richText;
+    if (listItems != undefined) {
+      this.listItems = listItems;
+    }
   }
 
   public get types(): typeof BlockType {
