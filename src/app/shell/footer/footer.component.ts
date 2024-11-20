@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   currentYear = new Date().getFullYear();
+  publicKeyLink = 'https://key.yashanand.dev';
   socialLinks = [
     {
       name: 'email',
